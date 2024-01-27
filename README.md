@@ -1,4 +1,4 @@
-## urlr@0.0.1
+## urlr-js@0.0.1
 
 TypeScript/JavaScript client for URLR, the GDPR-compliant all-in-one platform for link shortening.
 
@@ -6,7 +6,7 @@ This SDK is automatically generated with the [OpenAPI Generator](https://openapi
 
 - API version: 0.2
 - Package version: 0.0.1
-- Build package: urlr
+- Build package: urlr-js
 
 For more information, please visit [https://urlr.me/en](https://urlr.me/en)
 
@@ -42,13 +42,13 @@ Navigate to the folder of your project and run one of the following commands:
 ### NPM
 
 ```
-npm install urlr@0.0.1 --save
+npm install urlr-js@0.0.1 --save
 ```
 
 ### Yarn
 
 ```
-yarn install urlr@0.0.1
+yarn install urlr-js@0.0.1
 ```
 
 ## Getting Started

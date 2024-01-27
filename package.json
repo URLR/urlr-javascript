@@ -1,7 +1,7 @@
 {
-  "name": "urlr",
+  "name": "urlr-js",
   "version": "0.0.1",
-  "description": "OpenAPI client for urlr",
+  "description": "OpenAPI client for urlr-js",
   "author": "OpenAPI-Generator",
   "repository": {
     "type": "git",
