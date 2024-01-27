@@ -8,7 +8,7 @@
     "url": "https://github.com/urlr/urlr-javascript.git"
   },
   "homepage": "https://urlr.me/en",
-  "keywords": ["link shortener", "api, "sdk", "client"],
+  "keywords": ["link shortener", "api", "sdk", "client"],
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
   "scripts": {
