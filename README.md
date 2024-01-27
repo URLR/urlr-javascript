@@ -2,7 +2,7 @@
 
 TypeScript/JavaScript client for URLR, the GDPR-compliant all-in-one platform for link shortening.
 
-This SDK is automatically generated with the [OpenAPI Generator](https://openapi-generator.tech) project:
+This SDK is automatically generated with the [OpenAPI Generator](https://openapi-generator.tech) project.
 
 - API version: 0.2
 - Package version: 0.0.1
