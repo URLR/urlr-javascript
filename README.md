@@ -1,11 +1,13 @@
-## urlr-js@0.0.2
+# urlr-js@0.0.3
+
+![NPM Version](https://img.shields.io/npm/v/urlr-js) ![NPM Downloads](https://img.shields.io/npm/dm/urlr-js) ![NPM License](https://img.shields.io/npm/l/urlr-js)
 
 TypeScript/JavaScript client for URLR, the GDPR-compliant all-in-one platform for link shortening.
 
 This SDK is automatically generated with the [OpenAPI Generator](https://openapi-generator.tech) project.
 
 - API version: 0.2
-- Package version: 0.0.2
+- Package version: 0.0.3
 - Build package: urlr-js
 
 For more information, please visit [https://urlr.me/en](https://urlr.me/en)
@@ -42,13 +44,13 @@ Navigate to the folder of your project and run one of the following commands:
 ### NPM
 
 ```
-npm install urlr-js@0.0.2 --save
+npm install urlr-js@0.0.3
 ```
 
 ### Yarn
 
 ```
-yarn install urlr-js@0.0.2
+yarn install urlr-js@0.0.3
 ```
 
 ## Getting Started
@@ -68,6 +70,14 @@ Class | Method | HTTP request | Description
 *AuthentificationApi* | **authentification** | **POST** /login_check | Get an access token
 *LinkApi* | **reduceLink** | **POST** /reduce-link | Reduce a link
 *StatsApi* | **stats** | **POST** /stats | Get statistics of a link
+
+
+## Authorization
+
+
+### bearerAuth
+
+- **Type**: Bearer authentication (JWT)
 
 
 ## Get help / support

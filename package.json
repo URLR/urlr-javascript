@@ -1,13 +1,14 @@
 {
   "name": "urlr-js",
-  "version": "0.0.2",
-  "description": "SDK for URLR",
+  "version": "0.0.3",
+  "description": "JavaScript client for URLR",
   "author": "URLR",
   "repository": {
     "type": "git",
     "url": "https://github.com/urlr/urlr-javascript.git"
   },
   "homepage": "https://urlr.me/en",
+  "license": "MIT",
   "keywords": ["link shortener", "api", "sdk", "client"],
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
