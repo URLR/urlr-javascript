@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.0.1] - 2024-01-30
+
+- Finish README
+
 ## [1.0.0] - 2024-01-30
 
 - First version with a complete example.
