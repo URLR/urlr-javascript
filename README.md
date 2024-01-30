@@ -58,8 +58,34 @@ yarn install urlr-js@1.0.0
 Please follow the [installation](#installation) procedure and then run the following code:
 
 ```javascript
+import { Configuration, AuthentificationApi, LinkApi, StatsApi } from "urlr-js"
 
+// Authentification
+
+const authentificationApi = new AuthentificationApi();
+authentificationApi.authentification({
+  authentificationRequest: {
+    username: '',
+    password: ''
+  }
+}).then(function (data) {
+  const configuration = new Configuration({ accessToken: data.token });
+
+  // Link shortening
+
+  const linkApi = new LinkApi(configuration);
+  linkApi.reduceLink({
+    reduceLinkRequest: {
+      url: '',
+      team: ''
+    }
+  }).then(function (data) {
+    console.log(data)
+  }).catch((error) => console.error(error));
+}).catch((error) => console.error(error));
 ```
+
+A complete example is [available here](examples/example1.js).
 
 ## API Endpoints
 
