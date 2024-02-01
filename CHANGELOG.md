@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.0.2] - 2024-02-01
+
+- Fix two return types in reduce_link200_response
+
 ## [1.0.1] - 2024-01-30
 
 - Finish README

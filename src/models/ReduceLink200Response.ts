@@ -33,16 +33,16 @@ export interface ReduceLink200Response {
     expiredAt?: string;
     /**
      * Team id (displayed on dashboard)
-     * @type {string}
+     * @type {number}
      * @memberof ReduceLink200Response
      */
-    team?: string;
+    team?: number;
     /**
      * Folder id (displayed on dashboard)
-     * @type {string}
+     * @type {number}
      * @memberof ReduceLink200Response
      */
-    folder?: string;
+    folder?: number;
     /**
      * 
      * @type {string}
