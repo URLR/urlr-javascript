@@ -6,7 +6,7 @@
 
 ## [1.0.0] - 2024-01-30
 
-- First version with a complete example.
+- First version with a complete example
 
 ## [0.0.3] - 2024-01-28
 
