@@ -15,37 +15,25 @@
 
 import * as runtime from '../runtime';
 import type {
-  Stats200Response,
-  Stats400Response,
-  StatsRequest,
+  Team200Response,
 } from '../models/index';
 import {
-    Stats200ResponseFromJSON,
-    Stats200ResponseToJSON,
-    Stats400ResponseFromJSON,
-    Stats400ResponseToJSON,
-    StatsRequestFromJSON,
-    StatsRequestToJSON,
+    Team200ResponseFromJSON,
+    Team200ResponseToJSON,
 } from '../models/index';
-
-export interface StatsOperationRequest {
-    statsRequest?: StatsRequest;
-}
 
 /**
  * 
  */
-export class StatsApi extends runtime.BaseAPI {
+export class TeamApi extends runtime.BaseAPI {
 
     /**
-     * Get statistics of a link
+     * Get teams of user
      */
-    async statsRaw(requestParameters: StatsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Stats200Response>> {
+    async teamRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Team200Response>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -56,21 +44,20 @@ export class StatsApi extends runtime.BaseAPI {
             }
         }
         const response = await this.request({
-            path: `/stats`,
-            method: 'POST',
+            path: `/team`,
+            method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-            body: StatsRequestToJSON(requestParameters.statsRequest),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => Stats200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => Team200ResponseFromJSON(jsonValue));
     }
 
     /**
-     * Get statistics of a link
+     * Get teams of user
      */
-    async stats(requestParameters: StatsOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Stats200Response> {
-        const response = await this.statsRaw(requestParameters, initOverrides);
+    async team(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Team200Response> {
+        const response = await this.teamRaw(initOverrides);
         return await response.value();
     }
 

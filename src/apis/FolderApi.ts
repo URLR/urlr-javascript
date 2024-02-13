@@ -15,32 +15,29 @@
 
 import * as runtime from '../runtime';
 import type {
-  Stats200Response,
-  Stats400Response,
-  StatsRequest,
+  Folder200Response,
+  FolderRequest,
 } from '../models/index';
 import {
-    Stats200ResponseFromJSON,
-    Stats200ResponseToJSON,
-    Stats400ResponseFromJSON,
-    Stats400ResponseToJSON,
-    StatsRequestFromJSON,
-    StatsRequestToJSON,
+    Folder200ResponseFromJSON,
+    Folder200ResponseToJSON,
+    FolderRequestFromJSON,
+    FolderRequestToJSON,
 } from '../models/index';
 
-export interface StatsOperationRequest {
-    statsRequest?: StatsRequest;
+export interface FolderOperationRequest {
+    folderRequest?: FolderRequest;
 }
 
 /**
  * 
  */
-export class StatsApi extends runtime.BaseAPI {
+export class FolderApi extends runtime.BaseAPI {
 
     /**
-     * Get statistics of a link
+     * Get folders of team
      */
-    async statsRaw(requestParameters: StatsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Stats200Response>> {
+    async folderRaw(requestParameters: FolderOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Folder200Response>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -56,21 +53,21 @@ export class StatsApi extends runtime.BaseAPI {
             }
         }
         const response = await this.request({
-            path: `/stats`,
-            method: 'POST',
+            path: `/folder`,
+            method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-            body: StatsRequestToJSON(requestParameters.statsRequest),
+            body: FolderRequestToJSON(requestParameters.folderRequest),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => Stats200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => Folder200ResponseFromJSON(jsonValue));
     }
 
     /**
-     * Get statistics of a link
+     * Get folders of team
      */
-    async stats(requestParameters: StatsOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Stats200Response> {
-        const response = await this.statsRaw(requestParameters, initOverrides);
+    async folder(requestParameters: FolderOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Folder200Response> {
+        const response = await this.folderRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
