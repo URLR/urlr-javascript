@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -67,11 +67,9 @@ export interface ReduceLinkRequest {
  * Check if a given object implements the ReduceLinkRequest interface.
  */
 export function instanceOfReduceLinkRequest(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "url" in value;
-    isInstance = isInstance && "team" in value;
-
-    return isInstance;
+    if (!('url' in value)) return false;
+    if (!('team' in value)) return false;
+    return true;
 }
 
 export function ReduceLinkRequestFromJSON(json: any): ReduceLinkRequest {
@@ -79,37 +77,34 @@ export function ReduceLinkRequestFromJSON(json: any): ReduceLinkRequest {
 }
 
 export function ReduceLinkRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): ReduceLinkRequest {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
         'url': json['url'],
         'team': json['team'],
-        'folder': !exists(json, 'folder') ? undefined : json['folder'],
-        'code': !exists(json, 'code') ? undefined : json['code'],
-        'label': !exists(json, 'label') ? undefined : json['label'],
-        'password': !exists(json, 'password') ? undefined : json['password'],
-        'expiredAt': !exists(json, 'expired_at') ? undefined : json['expired_at'],
+        'folder': json['folder'] == null ? undefined : json['folder'],
+        'code': json['code'] == null ? undefined : json['code'],
+        'label': json['label'] == null ? undefined : json['label'],
+        'password': json['password'] == null ? undefined : json['password'],
+        'expiredAt': json['expired_at'] == null ? undefined : json['expired_at'],
     };
 }
 
 export function ReduceLinkRequestToJSON(value?: ReduceLinkRequest | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
+    if (value == null) {
+        return value;
     }
     return {
         
-        'url': value.url,
-        'team': value.team,
-        'folder': value.folder,
-        'code': value.code,
-        'label': value.label,
-        'password': value.password,
-        'expired_at': value.expiredAt,
+        'url': value['url'],
+        'team': value['team'],
+        'folder': value['folder'],
+        'code': value['code'],
+        'label': value['label'],
+        'password': value['password'],
+        'expired_at': value['expiredAt'],
     };
 }
 

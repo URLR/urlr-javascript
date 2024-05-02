@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -31,9 +31,7 @@ export interface Authentification200Response {
  * Check if a given object implements the Authentification200Response interface.
  */
 export function instanceOfAuthentification200Response(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
+    return true;
 }
 
 export function Authentification200ResponseFromJSON(json: any): Authentification200Response {
@@ -41,25 +39,22 @@ export function Authentification200ResponseFromJSON(json: any): Authentification
 }
 
 export function Authentification200ResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): Authentification200Response {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
-        'token': !exists(json, 'token') ? undefined : json['token'],
+        'token': json['token'] == null ? undefined : json['token'],
     };
 }
 
 export function Authentification200ResponseToJSON(value?: Authentification200Response | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
+    if (value == null) {
+        return value;
     }
     return {
         
-        'token': value.token,
+        'token': value['token'],
     };
 }
 

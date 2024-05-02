@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -43,9 +43,7 @@ export interface ReduceLink400Response {
  * Check if a given object implements the ReduceLink400Response interface.
  */
 export function instanceOfReduceLink400Response(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
+    return true;
 }
 
 export function ReduceLink400ResponseFromJSON(json: any): ReduceLink400Response {
@@ -53,29 +51,26 @@ export function ReduceLink400ResponseFromJSON(json: any): ReduceLink400Response 
 }
 
 export function ReduceLink400ResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): ReduceLink400Response {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
-        'code': !exists(json, 'code') ? undefined : json['code'],
-        'error': !exists(json, 'error') ? undefined : json['error'],
-        'message': !exists(json, 'message') ? undefined : json['message'],
+        'code': json['code'] == null ? undefined : json['code'],
+        'error': json['error'] == null ? undefined : json['error'],
+        'message': json['message'] == null ? undefined : json['message'],
     };
 }
 
 export function ReduceLink400ResponseToJSON(value?: ReduceLink400Response | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
+    if (value == null) {
+        return value;
     }
     return {
         
-        'code': value.code,
-        'error': value.error,
-        'message': value.message,
+        'code': value['code'],
+        'error': value['error'],
+        'message': value['message'],
     };
 }
 

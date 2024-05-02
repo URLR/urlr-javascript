@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -37,9 +37,7 @@ export interface Stats200Response {
  * Check if a given object implements the Stats200Response interface.
  */
 export function instanceOfStats200Response(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
+    return true;
 }
 
 export function Stats200ResponseFromJSON(json: any): Stats200Response {
@@ -47,27 +45,24 @@ export function Stats200ResponseFromJSON(json: any): Stats200Response {
 }
 
 export function Stats200ResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): Stats200Response {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
-        'clicks': !exists(json, 'clicks') ? undefined : json['clicks'],
-        'uniqueClicks': !exists(json, 'uniqueClicks') ? undefined : json['uniqueClicks'],
+        'clicks': json['clicks'] == null ? undefined : json['clicks'],
+        'uniqueClicks': json['uniqueClicks'] == null ? undefined : json['uniqueClicks'],
     };
 }
 
 export function Stats200ResponseToJSON(value?: Stats200Response | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
+    if (value == null) {
+        return value;
     }
     return {
         
-        'clicks': value.clicks,
-        'uniqueClicks': value.uniqueClicks,
+        'clicks': value['clicks'],
+        'uniqueClicks': value['uniqueClicks'],
     };
 }
 

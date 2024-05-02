@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -37,9 +37,7 @@ export interface Authentification401Response {
  * Check if a given object implements the Authentification401Response interface.
  */
 export function instanceOfAuthentification401Response(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
+    return true;
 }
 
 export function Authentification401ResponseFromJSON(json: any): Authentification401Response {
@@ -47,27 +45,24 @@ export function Authentification401ResponseFromJSON(json: any): Authentification
 }
 
 export function Authentification401ResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): Authentification401Response {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
-        'code': !exists(json, 'code') ? undefined : json['code'],
-        'message': !exists(json, 'message') ? undefined : json['message'],
+        'code': json['code'] == null ? undefined : json['code'],
+        'message': json['message'] == null ? undefined : json['message'],
     };
 }
 
 export function Authentification401ResponseToJSON(value?: Authentification401Response | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
+    if (value == null) {
+        return value;
     }
     return {
         
-        'code': value.code,
-        'message': value.message,
+        'code': value['code'],
+        'message': value['message'],
     };
 }
 

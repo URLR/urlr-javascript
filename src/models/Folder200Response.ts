@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
 import type { Folder200ResponseFoldersInner } from './Folder200ResponseFoldersInner';
 import {
     Folder200ResponseFoldersInnerFromJSON,
@@ -38,9 +38,7 @@ export interface Folder200Response {
  * Check if a given object implements the Folder200Response interface.
  */
 export function instanceOfFolder200Response(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
+    return true;
 }
 
 export function Folder200ResponseFromJSON(json: any): Folder200Response {
@@ -48,25 +46,22 @@ export function Folder200ResponseFromJSON(json: any): Folder200Response {
 }
 
 export function Folder200ResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): Folder200Response {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
-        'folders': !exists(json, 'folders') ? undefined : ((json['folders'] as Array<any>).map(Folder200ResponseFoldersInnerFromJSON)),
+        'folders': json['folders'] == null ? undefined : ((json['folders'] as Array<any>).map(Folder200ResponseFoldersInnerFromJSON)),
     };
 }
 
 export function Folder200ResponseToJSON(value?: Folder200Response | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
+    if (value == null) {
+        return value;
     }
     return {
         
-        'folders': value.folders === undefined ? undefined : ((value.folders as Array<any>).map(Folder200ResponseFoldersInnerToJSON)),
+        'folders': value['folders'] == null ? undefined : ((value['folders'] as Array<any>).map(Folder200ResponseFoldersInnerToJSON)),
     };
 }
 

@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -37,9 +37,7 @@ export interface Folder200ResponseFoldersInner {
  * Check if a given object implements the Folder200ResponseFoldersInner interface.
  */
 export function instanceOfFolder200ResponseFoldersInner(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
+    return true;
 }
 
 export function Folder200ResponseFoldersInnerFromJSON(json: any): Folder200ResponseFoldersInner {
@@ -47,27 +45,24 @@ export function Folder200ResponseFoldersInnerFromJSON(json: any): Folder200Respo
 }
 
 export function Folder200ResponseFoldersInnerFromJSONTyped(json: any, ignoreDiscriminator: boolean): Folder200ResponseFoldersInner {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
-        'id': !exists(json, 'id') ? undefined : json['id'],
-        'name': !exists(json, 'name') ? undefined : json['name'],
+        'id': json['id'] == null ? undefined : json['id'],
+        'name': json['name'] == null ? undefined : json['name'],
     };
 }
 
 export function Folder200ResponseFoldersInnerToJSON(value?: Folder200ResponseFoldersInner | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
+    if (value == null) {
+        return value;
     }
     return {
         
-        'id': value.id,
-        'name': value.name,
+        'id': value['id'],
+        'name': value['name'],
     };
 }
 

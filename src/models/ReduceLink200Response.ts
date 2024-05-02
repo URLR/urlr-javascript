@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -67,9 +67,7 @@ export interface ReduceLink200Response {
  * Check if a given object implements the ReduceLink200Response interface.
  */
 export function instanceOfReduceLink200Response(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
+    return true;
 }
 
 export function ReduceLink200ResponseFromJSON(json: any): ReduceLink200Response {
@@ -77,37 +75,34 @@ export function ReduceLink200ResponseFromJSON(json: any): ReduceLink200Response 
 }
 
 export function ReduceLink200ResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): ReduceLink200Response {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
-        'url': !exists(json, 'url') ? undefined : json['url'],
-        'expiredAt': !exists(json, 'expired_at') ? undefined : json['expired_at'],
-        'team': !exists(json, 'team') ? undefined : json['team'],
-        'folder': !exists(json, 'folder') ? undefined : json['folder'],
-        'urlCode': !exists(json, 'url_code') ? undefined : json['url_code'],
-        'domain': !exists(json, 'domain') ? undefined : json['domain'],
-        'code': !exists(json, 'code') ? undefined : json['code'],
+        'url': json['url'] == null ? undefined : json['url'],
+        'expiredAt': json['expired_at'] == null ? undefined : json['expired_at'],
+        'team': json['team'] == null ? undefined : json['team'],
+        'folder': json['folder'] == null ? undefined : json['folder'],
+        'urlCode': json['url_code'] == null ? undefined : json['url_code'],
+        'domain': json['domain'] == null ? undefined : json['domain'],
+        'code': json['code'] == null ? undefined : json['code'],
     };
 }
 
 export function ReduceLink200ResponseToJSON(value?: ReduceLink200Response | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
+    if (value == null) {
+        return value;
     }
     return {
         
-        'url': value.url,
-        'expired_at': value.expiredAt,
-        'team': value.team,
-        'folder': value.folder,
-        'url_code': value.urlCode,
-        'domain': value.domain,
-        'code': value.code,
+        'url': value['url'],
+        'expired_at': value['expiredAt'],
+        'team': value['team'],
+        'folder': value['folder'],
+        'url_code': value['urlCode'],
+        'domain': value['domain'],
+        'code': value['code'],
     };
 }
 

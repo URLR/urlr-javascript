@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
 import type { Team200ResponseTeamsInner } from './Team200ResponseTeamsInner';
 import {
     Team200ResponseTeamsInnerFromJSON,
@@ -38,9 +38,7 @@ export interface Team200Response {
  * Check if a given object implements the Team200Response interface.
  */
 export function instanceOfTeam200Response(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
+    return true;
 }
 
 export function Team200ResponseFromJSON(json: any): Team200Response {
@@ -48,25 +46,22 @@ export function Team200ResponseFromJSON(json: any): Team200Response {
 }
 
 export function Team200ResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): Team200Response {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
-        'teams': !exists(json, 'teams') ? undefined : ((json['teams'] as Array<any>).map(Team200ResponseTeamsInnerFromJSON)),
+        'teams': json['teams'] == null ? undefined : ((json['teams'] as Array<any>).map(Team200ResponseTeamsInnerFromJSON)),
     };
 }
 
 export function Team200ResponseToJSON(value?: Team200Response | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
+    if (value == null) {
+        return value;
     }
     return {
         
-        'teams': value.teams === undefined ? undefined : ((value.teams as Array<any>).map(Team200ResponseTeamsInnerToJSON)),
+        'teams': value['teams'] == null ? undefined : ((value['teams'] as Array<any>).map(Team200ResponseTeamsInnerToJSON)),
     };
 }
 

@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -37,9 +37,7 @@ export interface Team200ResponseTeamsInner {
  * Check if a given object implements the Team200ResponseTeamsInner interface.
  */
 export function instanceOfTeam200ResponseTeamsInner(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
+    return true;
 }
 
 export function Team200ResponseTeamsInnerFromJSON(json: any): Team200ResponseTeamsInner {
@@ -47,27 +45,24 @@ export function Team200ResponseTeamsInnerFromJSON(json: any): Team200ResponseTea
 }
 
 export function Team200ResponseTeamsInnerFromJSONTyped(json: any, ignoreDiscriminator: boolean): Team200ResponseTeamsInner {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
-        'id': !exists(json, 'id') ? undefined : json['id'],
-        'name': !exists(json, 'name') ? undefined : json['name'],
+        'id': json['id'] == null ? undefined : json['id'],
+        'name': json['name'] == null ? undefined : json['name'],
     };
 }
 
 export function Team200ResponseTeamsInnerToJSON(value?: Team200ResponseTeamsInner | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
+    if (value == null) {
+        return value;
     }
     return {
         
-        'id': value.id,
-        'name': value.name,
+        'id': value['id'],
+        'name': value['name'],
     };
 }
 

@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -31,10 +31,8 @@ export interface FolderRequest {
  * Check if a given object implements the FolderRequest interface.
  */
 export function instanceOfFolderRequest(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "team" in value;
-
-    return isInstance;
+    if (!('team' in value)) return false;
+    return true;
 }
 
 export function FolderRequestFromJSON(json: any): FolderRequest {
@@ -42,7 +40,7 @@ export function FolderRequestFromJSON(json: any): FolderRequest {
 }
 
 export function FolderRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): FolderRequest {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
@@ -52,15 +50,12 @@ export function FolderRequestFromJSONTyped(json: any, ignoreDiscriminator: boole
 }
 
 export function FolderRequestToJSON(value?: FolderRequest | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
+    if (value == null) {
+        return value;
     }
     return {
         
-        'team': value.team,
+        'team': value['team'],
     };
 }
 

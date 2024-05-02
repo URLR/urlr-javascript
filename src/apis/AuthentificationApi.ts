@@ -52,7 +52,7 @@ export class AuthentificationApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: AuthentificationRequestToJSON(requestParameters.authentificationRequest),
+            body: AuthentificationRequestToJSON(requestParameters['authentificationRequest']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => Authentification200ResponseFromJSON(jsonValue));

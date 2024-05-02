@@ -57,7 +57,7 @@ export class FolderApi extends runtime.BaseAPI {
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-            body: FolderRequestToJSON(requestParameters.folderRequest),
+            body: FolderRequestToJSON(requestParameters['folderRequest']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => Folder200ResponseFromJSON(jsonValue));

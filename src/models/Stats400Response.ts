@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -37,9 +37,7 @@ export interface Stats400Response {
  * Check if a given object implements the Stats400Response interface.
  */
 export function instanceOfStats400Response(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
+    return true;
 }
 
 export function Stats400ResponseFromJSON(json: any): Stats400Response {
@@ -47,27 +45,24 @@ export function Stats400ResponseFromJSON(json: any): Stats400Response {
 }
 
 export function Stats400ResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): Stats400Response {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
-        'code': !exists(json, 'code') ? undefined : json['code'],
-        'error': !exists(json, 'error') ? undefined : json['error'],
+        'code': json['code'] == null ? undefined : json['code'],
+        'error': json['error'] == null ? undefined : json['error'],
     };
 }
 
 export function Stats400ResponseToJSON(value?: Stats400Response | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
+    if (value == null) {
+        return value;
     }
     return {
         
-        'code': value.code,
-        'error': value.error,
+        'code': value['code'],
+        'error': value['error'],
     };
 }
 

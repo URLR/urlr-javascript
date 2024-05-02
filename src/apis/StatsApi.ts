@@ -60,7 +60,7 @@ export class StatsApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: StatsRequestToJSON(requestParameters.statsRequest),
+            body: StatsRequestToJSON(requestParameters['statsRequest']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => Stats200ResponseFromJSON(jsonValue));

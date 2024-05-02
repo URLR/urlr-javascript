@@ -60,7 +60,7 @@ export class LinkApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: ReduceLinkRequestToJSON(requestParameters.reduceLinkRequest),
+            body: ReduceLinkRequestToJSON(requestParameters['reduceLinkRequest']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ReduceLink200ResponseFromJSON(jsonValue));

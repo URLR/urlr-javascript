@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -49,10 +49,8 @@ export interface StatsRequest {
  * Check if a given object implements the StatsRequest interface.
  */
 export function instanceOfStatsRequest(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "code" in value;
-
-    return isInstance;
+    if (!('code' in value)) return false;
+    return true;
 }
 
 export function StatsRequestFromJSON(json: any): StatsRequest {
@@ -60,31 +58,28 @@ export function StatsRequestFromJSON(json: any): StatsRequest {
 }
 
 export function StatsRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): StatsRequest {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
         'code': json['code'],
-        'from': !exists(json, 'from') ? undefined : json['from'],
-        'to': !exists(json, 'to') ? undefined : json['to'],
-        'includeBots': !exists(json, 'includeBots') ? undefined : json['includeBots'],
+        'from': json['from'] == null ? undefined : json['from'],
+        'to': json['to'] == null ? undefined : json['to'],
+        'includeBots': json['includeBots'] == null ? undefined : json['includeBots'],
     };
 }
 
 export function StatsRequestToJSON(value?: StatsRequest | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
+    if (value == null) {
+        return value;
     }
     return {
         
-        'code': value.code,
-        'from': value.from,
-        'to': value.to,
-        'includeBots': value.includeBots,
+        'code': value['code'],
+        'from': value['from'],
+        'to': value['to'],
+        'includeBots': value['includeBots'],
     };
 }
 

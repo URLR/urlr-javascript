@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -37,9 +37,7 @@ export interface AuthentificationRequest {
  * Check if a given object implements the AuthentificationRequest interface.
  */
 export function instanceOfAuthentificationRequest(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
+    return true;
 }
 
 export function AuthentificationRequestFromJSON(json: any): AuthentificationRequest {
@@ -47,27 +45,24 @@ export function AuthentificationRequestFromJSON(json: any): AuthentificationRequ
 }
 
 export function AuthentificationRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): AuthentificationRequest {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
-        'username': !exists(json, 'username') ? undefined : json['username'],
-        'password': !exists(json, 'password') ? undefined : json['password'],
+        'username': json['username'] == null ? undefined : json['username'],
+        'password': json['password'] == null ? undefined : json['password'],
     };
 }
 
 export function AuthentificationRequestToJSON(value?: AuthentificationRequest | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
+    if (value == null) {
+        return value;
     }
     return {
         
-        'username': value.username,
-        'password': value.password,
+        'username': value['username'],
+        'password': value['password'],
     };
 }
 
