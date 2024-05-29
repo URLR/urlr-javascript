@@ -48,7 +48,7 @@ export interface CreateLink201Response {
      * @type {string}
      * @memberof CreateLink201Response
      */
-    domainId?: string;
+    domain?: string;
     /**
      * Short code
      * @type {string}
@@ -102,7 +102,7 @@ export function CreateLink201ResponseFromJSONTyped(json: any, ignoreDiscriminato
         'url': json['url'] == null ? undefined : json['url'],
         'team': json['team'] == null ? undefined : json['team'],
         'folderId': json['folder_id'] == null ? undefined : json['folder_id'],
-        'domainId': json['domain_id'] == null ? undefined : json['domain_id'],
+        'domain': json['domain'] == null ? undefined : json['domain'],
         'code': json['code'] == null ? undefined : json['code'],
         'label': json['label'] == null ? undefined : json['label'],
         'createdAt': json['created_at'] == null ? undefined : (new Date(json['created_at'])),
@@ -121,7 +121,7 @@ export function CreateLink201ResponseToJSON(value?: CreateLink201Response | null
         'url': value['url'],
         'team': value['team'],
         'folder_id': value['folderId'],
-        'domain_id': value['domainId'],
+        'domain': value['domain'],
         'code': value['code'],
         'label': value['label'],
         'created_at': value['createdAt'] == null ? undefined : ((value['createdAt']).toISOString()),

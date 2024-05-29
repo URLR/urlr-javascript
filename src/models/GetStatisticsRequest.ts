@@ -26,13 +26,13 @@ export interface GetStatisticsRequest {
      */
     linkId?: string;
     /**
-     * Get stats from this date
+     * Get statistics from this date
      * @type {Date}
      * @memberof GetStatisticsRequest
      */
     from?: Date;
     /**
-     * Get stats until this date
+     * Get statistics until this date
      * @type {Date}
      * @memberof GetStatisticsRequest
      */
