@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
-export * from './AuthentificationApi';
-export * from './FolderApi';
-export * from './LinkApi';
-export * from './StatsApi';
-export * from './TeamApi';
+export * from './AccessTokensApi';
+export * from './FoldersApi';
+export * from './LinksApi';
+export * from './StatisticsApi';
+export * from './TeamsApi';

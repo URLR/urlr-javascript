@@ -1,4 +1,4 @@
-# urlr-js@1.2.0
+# urlr-js@2.0.0
 
 ![NPM Version](https://img.shields.io/npm/v/urlr-js) ![NPM Downloads](https://img.shields.io/npm/dm/urlr-js) ![NPM License](https://img.shields.io/npm/l/urlr-js)
 
@@ -6,8 +6,8 @@ TypeScript/JavaScript client for URLR, the GDPR-compliant all-in-one platform fo
 
 This SDK is automatically generated with the [OpenAPI Generator](https://openapi-generator.tech) project.
 
-- API version: 0.3
-- Package version: 1.2.0
+- API version: 1.0
+- Package version: 2.0.0
 - Build package: urlr-js
 
 For more information, please visit [https://urlr.me/en](https://urlr.me/en)
@@ -44,13 +44,13 @@ Navigate to the folder of your project and run one of the following commands:
 ### NPM
 
 ```
-npm install urlr-js@1.2.0
+npm install urlr-js@2.0.0
 ```
 
 ### Yarn
 
 ```
-yarn install urlr-js@1.2.0
+yarn install urlr-js@2.0.0
 ```
 
 ## Getting Started
@@ -89,15 +89,17 @@ A complete example is [available here](examples/example1.js).
 
 ## API Endpoints
 
-All URIs are relative to *https://urlr.me/api*
+All URIs are relative to *https://urlr.me/api/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AuthentificationApi* | **authentification** | **POST** /login_check | Get an access token
-*FolderApi* | **folder** | **GET** /folder | Get folders of team
-*LinkApi* | **reduceLink** | **POST** /reduce-link | Shorten a link
-*StatsApi* | **stats** | **POST** /stats | Get statistics of a link
-*TeamApi* | **team** | **GET** /team | Get teams of user
+*AccessTokensApi* | **createAccessToken** | **POST** /access_tokens/create | Get an access token
+*AccessTokensApi* | **refreshAccessToken** | **POST** /access_tokens/refresh | Refresh an access token
+*FoldersApi* | **getFolders** | **GET** /folders/{team_id} | Get folders of team
+*LinksApi* | **createLink** | **POST** /links/create | Create a link
+*LinksApi* | **getLink** | **GET** /links/{link_id} | Get a link
+*StatisticsApi* | **getStatistics** | **POST** /statistics | Get statistics of a link
+*TeamsApi* | **getTeams** | **GET** /teams | Get teams of user
 
 
 ## Authorization
