@@ -77,7 +77,7 @@ accessTokensApi.createAccessToken({
   linksApi.createLink({
     createLinkRequest: {
       url: '',
-      team_id: ''
+      teamId: ''
     }
   }).then(function (data) {
     console.log(data)

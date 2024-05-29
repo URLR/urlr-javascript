@@ -17,7 +17,7 @@ accessTokensApi.create_access_token({
   linksApi.createLink({
     createLinkRequest: {
       url: '',
-      team_id: ''
+      teamId: ''
     }
   }).then(function (data) {
     console.log(data)
@@ -28,7 +28,7 @@ accessTokensApi.create_access_token({
   const statisticsApi = new StatisticsApi(configuration);
   statisticsApi.statistics({
     statisticsRequest: {
-      link_id: ''
+      linkId: ''
     }
   }).then(function (data) {
     console.log(data)
