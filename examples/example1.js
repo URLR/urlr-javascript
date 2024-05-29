@@ -17,7 +17,7 @@ authentificationApi.authentification({
   linkApi.reduceLink({
     reduceLinkRequest: {
       url: '',
-      team: ''
+      team_id: ''
     }
   }).then(function (data) {
     console.log(data)
