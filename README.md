@@ -58,13 +58,13 @@ yarn install urlr-js@2.0.0
 Please follow the [installation](#installation) procedure and then run the following code:
 
 ```javascript
-import { Configuration, AuthentificationApi, LinkApi, StatsApi } from "urlr-js"
+import { Configuration, AccessTokensApi, LinksApi } from "urlr-js"
 
-// Authentification
+// Access Tokens
 
-const authentificationApi = new AuthentificationApi();
-authentificationApi.authentification({
-  authentificationRequest: {
+const accessTokensApi = new AccessTokensApi();
+accessTokensApi.createAccessToken({
+  accessTokensRequest: {
     username: '',
     password: ''
   }
@@ -73,9 +73,9 @@ authentificationApi.authentification({
 
   // Link shortening
 
-  const linkApi = new LinkApi(configuration);
-  linkApi.reduceLink({
-    reduceLinkRequest: {
+  const linksApi = new LinksApi(configuration);
+  linksApi.createLink({
+    createLinkRequest: {
       url: '',
       team_id: ''
     }

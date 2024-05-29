@@ -1,10 +1,10 @@
-import { Configuration, AuthentificationApi, LinkApi, StatsApi } from "urlr-js"
+import { Configuration, AccessTokensApi, LinksApi, StatisticsApi } from "urlr-js"
 
-// Authentification
+// Access Tokens
 
-const authentificationApi = new AuthentificationApi();
-authentificationApi.authentification({
-  authentificationRequest: {
+const accessTokensApi = new AccessTokensApi();
+accessTokensApi.create_access_token({
+  accessTokensRequest: {
     username: '',
     password: ''
   }
@@ -13,9 +13,9 @@ authentificationApi.authentification({
 
   // Link shortening
 
-  const linkApi = new LinkApi(configuration);
-  linkApi.reduceLink({
-    reduceLinkRequest: {
+  const linksApi = new LinksApi(configuration);
+  linksApi.createLink({
+    createLinkRequest: {
       url: '',
       team_id: ''
     }
@@ -25,10 +25,10 @@ authentificationApi.authentification({
 
   // Statistics
 
-  const statsApi = new StatsApi(configuration);
-  statsApi.stats({
-    statsRequest: {
-      'code': ''
+  const statisticsApi = new StatisticsApi(configuration);
+  statisticsApi.statistics({
+    statisticsRequest: {
+      link_id: ''
     }
   }).then(function (data) {
     console.log(data)
