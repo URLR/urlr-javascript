@@ -4,7 +4,7 @@ import { Configuration, AccessTokensApi, LinksApi, StatisticsApi } from "urlr-js
 
 const accessTokensApi = new AccessTokensApi();
 accessTokensApi.create_access_token({
-  accessTokensRequest: {
+  createAccessTokenRequest: {
     username: '',
     password: ''
   }
