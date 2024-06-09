@@ -12,13 +12,15 @@ src/index.ts
 src/models/CreateAccessToken200Response.ts
 src/models/CreateAccessToken401Response.ts
 src/models/CreateAccessTokenRequest.ts
-src/models/CreateLink201Response.ts
 src/models/CreateLink429Response.ts
 src/models/CreateLink500Response.ts
 src/models/CreateLinkRequest.ts
+src/models/CreateLinkRequestMetatag.ts
 src/models/GetFolders200Response.ts
 src/models/GetFolders200ResponseFoldersInner.ts
 src/models/GetLink200Response.ts
+src/models/GetLink200ResponseGeolinksInner.ts
+src/models/GetLink200ResponseMetatag.ts
 src/models/GetLink401Response.ts
 src/models/GetLink404Response.ts
 src/models/GetLink422Response.ts
