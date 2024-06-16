@@ -14,48 +14,47 @@
 
 import { mapValues } from '../runtime';
 /**
- * 
+ * QR Code associated to the short link
  * @export
- * @interface RefreshAccessTokenRequest
+ * @interface GetLink200ResponseQrcode
  */
-export interface RefreshAccessTokenRequest {
+export interface GetLink200ResponseQrcode {
     /**
-     * Refresh token
+     * QR Code Data URL
      * @type {string}
-     * @memberof RefreshAccessTokenRequest
+     * @memberof GetLink200ResponseQrcode
      */
-    refreshToken: string;
+    data?: string;
 }
 
 /**
- * Check if a given object implements the RefreshAccessTokenRequest interface.
+ * Check if a given object implements the GetLink200ResponseQrcode interface.
  */
-export function instanceOfRefreshAccessTokenRequest(value: object): value is RefreshAccessTokenRequest {
-    if (!('refreshToken' in value) || value['refreshToken'] === undefined) return false;
+export function instanceOfGetLink200ResponseQrcode(value: object): value is GetLink200ResponseQrcode {
     return true;
 }
 
-export function RefreshAccessTokenRequestFromJSON(json: any): RefreshAccessTokenRequest {
-    return RefreshAccessTokenRequestFromJSONTyped(json, false);
+export function GetLink200ResponseQrcodeFromJSON(json: any): GetLink200ResponseQrcode {
+    return GetLink200ResponseQrcodeFromJSONTyped(json, false);
 }
 
-export function RefreshAccessTokenRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): RefreshAccessTokenRequest {
+export function GetLink200ResponseQrcodeFromJSONTyped(json: any, ignoreDiscriminator: boolean): GetLink200ResponseQrcode {
     if (json == null) {
         return json;
     }
     return {
         
-        'refreshToken': json['refresh_token'],
+        'data': json['data'] == null ? undefined : json['data'],
     };
 }
 
-export function RefreshAccessTokenRequestToJSON(value?: RefreshAccessTokenRequest | null): any {
+export function GetLink200ResponseQrcodeToJSON(value?: GetLink200ResponseQrcode | null): any {
     if (value == null) {
         return value;
     }
     return {
         
-        'refresh_token': value['refreshToken'],
+        'data': value['data'],
     };
 }
 

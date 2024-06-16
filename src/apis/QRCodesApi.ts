@@ -15,38 +15,38 @@
 
 import * as runtime from '../runtime';
 import type {
+  CreateLink429Response,
+  CreateLink500Response,
+  CreateQrCodeRequest,
   GetLink401Response,
-  GetLink404Response,
   GetLink422Response,
-  GetStatistics200Response,
-  GetStatisticsRequest,
 } from '../models/index';
 import {
+    CreateLink429ResponseFromJSON,
+    CreateLink429ResponseToJSON,
+    CreateLink500ResponseFromJSON,
+    CreateLink500ResponseToJSON,
+    CreateQrCodeRequestFromJSON,
+    CreateQrCodeRequestToJSON,
     GetLink401ResponseFromJSON,
     GetLink401ResponseToJSON,
-    GetLink404ResponseFromJSON,
-    GetLink404ResponseToJSON,
     GetLink422ResponseFromJSON,
     GetLink422ResponseToJSON,
-    GetStatistics200ResponseFromJSON,
-    GetStatistics200ResponseToJSON,
-    GetStatisticsRequestFromJSON,
-    GetStatisticsRequestToJSON,
 } from '../models/index';
 
-export interface GetStatisticsOperationRequest {
-    getStatisticsRequest?: GetStatisticsRequest;
+export interface CreateQrCodeOperationRequest {
+    createQrCodeRequest?: CreateQrCodeRequest;
 }
 
 /**
  * 
  */
-export class StatisticsApi extends runtime.BaseAPI {
+export class QRCodesApi extends runtime.BaseAPI {
 
     /**
-     * Get statistics of a link
+     * Create a QR Code
      */
-    async getStatisticsRaw(requestParameters: GetStatisticsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetStatistics200Response>> {
+    async createQrCodeRaw(requestParameters: CreateQrCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Blob>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -62,21 +62,21 @@ export class StatisticsApi extends runtime.BaseAPI {
             }
         }
         const response = await this.request({
-            path: `/statistics`,
+            path: `/qrcodes/create`,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: GetStatisticsRequestToJSON(requestParameters['getStatisticsRequest']),
+            body: CreateQrCodeRequestToJSON(requestParameters['createQrCodeRequest']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetStatistics200ResponseFromJSON(jsonValue));
+        return new runtime.BlobApiResponse(response);
     }
 
     /**
-     * Get statistics of a link
+     * Create a QR Code
      */
-    async getStatistics(requestParameters: GetStatisticsOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetStatistics200Response> {
-        const response = await this.getStatisticsRaw(requestParameters, initOverrides);
+    async createQrCode(requestParameters: CreateQrCodeOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Blob> {
+        const response = await this.createQrCodeRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

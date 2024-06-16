@@ -16,46 +16,46 @@ import { mapValues } from '../runtime';
 /**
  * 
  * @export
- * @interface RefreshAccessTokenRequest
+ * @interface CreateQrCodeRequestOneOf1
  */
-export interface RefreshAccessTokenRequest {
+export interface CreateQrCodeRequestOneOf1 {
     /**
-     * Refresh token
+     * Link API ID of the QR Code
      * @type {string}
-     * @memberof RefreshAccessTokenRequest
+     * @memberof CreateQrCodeRequestOneOf1
      */
-    refreshToken: string;
+    linkId: string;
 }
 
 /**
- * Check if a given object implements the RefreshAccessTokenRequest interface.
+ * Check if a given object implements the CreateQrCodeRequestOneOf1 interface.
  */
-export function instanceOfRefreshAccessTokenRequest(value: object): value is RefreshAccessTokenRequest {
-    if (!('refreshToken' in value) || value['refreshToken'] === undefined) return false;
+export function instanceOfCreateQrCodeRequestOneOf1(value: object): value is CreateQrCodeRequestOneOf1 {
+    if (!('linkId' in value) || value['linkId'] === undefined) return false;
     return true;
 }
 
-export function RefreshAccessTokenRequestFromJSON(json: any): RefreshAccessTokenRequest {
-    return RefreshAccessTokenRequestFromJSONTyped(json, false);
+export function CreateQrCodeRequestOneOf1FromJSON(json: any): CreateQrCodeRequestOneOf1 {
+    return CreateQrCodeRequestOneOf1FromJSONTyped(json, false);
 }
 
-export function RefreshAccessTokenRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): RefreshAccessTokenRequest {
+export function CreateQrCodeRequestOneOf1FromJSONTyped(json: any, ignoreDiscriminator: boolean): CreateQrCodeRequestOneOf1 {
     if (json == null) {
         return json;
     }
     return {
         
-        'refreshToken': json['refresh_token'],
+        'linkId': json['link_id'],
     };
 }
 
-export function RefreshAccessTokenRequestToJSON(value?: RefreshAccessTokenRequest | null): any {
+export function CreateQrCodeRequestOneOf1ToJSON(value?: CreateQrCodeRequestOneOf1 | null): any {
     if (value == null) {
         return value;
     }
     return {
         
-        'refresh_token': value['refreshToken'],
+        'link_id': value['linkId'],
     };
 }
 

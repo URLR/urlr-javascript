@@ -5,6 +5,7 @@ package.json
 src/apis/AccessTokensApi.ts
 src/apis/FoldersApi.ts
 src/apis/LinksApi.ts
+src/apis/QRCodesApi.ts
 src/apis/StatisticsApi.ts
 src/apis/TeamsApi.ts
 src/apis/index.ts
@@ -16,11 +17,16 @@ src/models/CreateLink429Response.ts
 src/models/CreateLink500Response.ts
 src/models/CreateLinkRequest.ts
 src/models/CreateLinkRequestMetatag.ts
+src/models/CreateLinkRequestQrcode.ts
+src/models/CreateQrCodeRequest.ts
+src/models/CreateQrCodeRequestOneOf.ts
+src/models/CreateQrCodeRequestOneOf1.ts
 src/models/GetFolders200Response.ts
 src/models/GetFolders200ResponseFoldersInner.ts
 src/models/GetLink200Response.ts
 src/models/GetLink200ResponseGeolinksInner.ts
 src/models/GetLink200ResponseMetatag.ts
+src/models/GetLink200ResponseQrcode.ts
 src/models/GetLink401Response.ts
 src/models/GetLink404Response.ts
 src/models/GetLink422Response.ts
