@@ -55,10 +55,15 @@ export function CreateAccessToken200ResponseFromJSONTyped(json: any, ignoreDiscr
     };
 }
 
-export function CreateAccessToken200ResponseToJSON(value?: CreateAccessToken200Response | null): any {
+  export function CreateAccessToken200ResponseToJSON(json: any): CreateAccessToken200Response {
+      return CreateAccessToken200ResponseToJSONTyped(json, false);
+  }
+
+  export function CreateAccessToken200ResponseToJSONTyped(value?: CreateAccessToken200Response | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'token': value['token'],

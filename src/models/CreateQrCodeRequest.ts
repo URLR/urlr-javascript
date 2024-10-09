@@ -48,6 +48,8 @@ export function CreateQrCodeRequestFromJSONTyped(json: any, ignoreDiscriminator:
     if (instanceOfCreateQrCodeRequestOneOf1(json)) {
         return CreateQrCodeRequestOneOf1FromJSONTyped(json, true);
     }
+
+    return {} as any;
 }
 
 export function CreateQrCodeRequestToJSON(value?: CreateQrCodeRequest | null): any {

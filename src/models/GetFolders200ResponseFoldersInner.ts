@@ -55,10 +55,15 @@ export function GetFolders200ResponseFoldersInnerFromJSONTyped(json: any, ignore
     };
 }
 
-export function GetFolders200ResponseFoldersInnerToJSON(value?: GetFolders200ResponseFoldersInner | null): any {
+  export function GetFolders200ResponseFoldersInnerToJSON(json: any): GetFolders200ResponseFoldersInner {
+      return GetFolders200ResponseFoldersInnerToJSONTyped(json, false);
+  }
+
+  export function GetFolders200ResponseFoldersInnerToJSONTyped(value?: GetFolders200ResponseFoldersInner | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'id': value['id'],

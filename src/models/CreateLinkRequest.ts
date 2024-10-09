@@ -18,12 +18,14 @@ import {
     CreateLinkRequestMetatagFromJSON,
     CreateLinkRequestMetatagFromJSONTyped,
     CreateLinkRequestMetatagToJSON,
+    CreateLinkRequestMetatagToJSONTyped,
 } from './CreateLinkRequestMetatag';
 import type { CreateLinkRequestQrcode } from './CreateLinkRequestQrcode';
 import {
     CreateLinkRequestQrcodeFromJSON,
     CreateLinkRequestQrcodeFromJSONTyped,
     CreateLinkRequestQrcodeToJSON,
+    CreateLinkRequestQrcodeToJSONTyped,
 } from './CreateLinkRequestQrcode';
 
 /**
@@ -133,10 +135,15 @@ export function CreateLinkRequestFromJSONTyped(json: any, ignoreDiscriminator: b
     };
 }
 
-export function CreateLinkRequestToJSON(value?: CreateLinkRequest | null): any {
+  export function CreateLinkRequestToJSON(json: any): CreateLinkRequest {
+      return CreateLinkRequestToJSONTyped(json, false);
+  }
+
+  export function CreateLinkRequestToJSONTyped(value?: CreateLinkRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'url': value['url'],

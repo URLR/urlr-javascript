@@ -69,10 +69,15 @@ export function CreateLink429ResponseFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-export function CreateLink429ResponseToJSON(value?: CreateLink429Response | null): any {
+  export function CreateLink429ResponseToJSON(json: any): CreateLink429Response {
+      return CreateLink429ResponseToJSONTyped(json, false);
+  }
+
+  export function CreateLink429ResponseToJSONTyped(value?: CreateLink429Response | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'type': value['type'],

@@ -18,18 +18,21 @@ import {
     GetLink200ResponseMetatagFromJSON,
     GetLink200ResponseMetatagFromJSONTyped,
     GetLink200ResponseMetatagToJSON,
+    GetLink200ResponseMetatagToJSONTyped,
 } from './GetLink200ResponseMetatag';
 import type { GetLink200ResponseGeolinksInner } from './GetLink200ResponseGeolinksInner';
 import {
     GetLink200ResponseGeolinksInnerFromJSON,
     GetLink200ResponseGeolinksInnerFromJSONTyped,
     GetLink200ResponseGeolinksInnerToJSON,
+    GetLink200ResponseGeolinksInnerToJSONTyped,
 } from './GetLink200ResponseGeolinksInner';
 import type { GetLink200ResponseQrcode } from './GetLink200ResponseQrcode';
 import {
     GetLink200ResponseQrcodeFromJSON,
     GetLink200ResponseQrcodeFromJSONTyped,
     GetLink200ResponseQrcodeToJSON,
+    GetLink200ResponseQrcodeToJSONTyped,
 } from './GetLink200ResponseQrcode';
 
 /**
@@ -55,7 +58,7 @@ export interface GetLink200Response {
      * @type {string}
      * @memberof GetLink200Response
      */
-    team?: string;
+    teamId?: string;
     /**
      * Folder API ID
      * @type {string}
@@ -143,7 +146,7 @@ export function GetLink200ResponseFromJSONTyped(json: any, ignoreDiscriminator: 
         
         'id': json['id'] == null ? undefined : json['id'],
         'url': json['url'] == null ? undefined : json['url'],
-        'team': json['team'] == null ? undefined : json['team'],
+        'teamId': json['team_id'] == null ? undefined : json['team_id'],
         'folderId': json['folder_id'] == null ? undefined : json['folder_id'],
         'domain': json['domain'] == null ? undefined : json['domain'],
         'code': json['code'] == null ? undefined : json['code'],
@@ -158,15 +161,20 @@ export function GetLink200ResponseFromJSONTyped(json: any, ignoreDiscriminator: 
     };
 }
 
-export function GetLink200ResponseToJSON(value?: GetLink200Response | null): any {
+  export function GetLink200ResponseToJSON(json: any): GetLink200Response {
+      return GetLink200ResponseToJSONTyped(json, false);
+  }
+
+  export function GetLink200ResponseToJSONTyped(value?: GetLink200Response | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'id': value['id'],
         'url': value['url'],
-        'team': value['team'],
+        'team_id': value['teamId'],
         'folder_id': value['folderId'],
         'domain': value['domain'],
         'code': value['code'],

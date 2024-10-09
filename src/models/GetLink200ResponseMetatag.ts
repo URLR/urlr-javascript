@@ -62,10 +62,15 @@ export function GetLink200ResponseMetatagFromJSONTyped(json: any, ignoreDiscrimi
     };
 }
 
-export function GetLink200ResponseMetatagToJSON(value?: GetLink200ResponseMetatag | null): any {
+  export function GetLink200ResponseMetatagToJSON(json: any): GetLink200ResponseMetatag {
+      return GetLink200ResponseMetatagToJSONTyped(json, false);
+  }
+
+  export function GetLink200ResponseMetatagToJSONTyped(value?: GetLink200ResponseMetatag | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'title': value['title'],

@@ -57,10 +57,15 @@ export function CreateAccessTokenRequestFromJSONTyped(json: any, ignoreDiscrimin
     };
 }
 
-export function CreateAccessTokenRequestToJSON(value?: CreateAccessTokenRequest | null): any {
+  export function CreateAccessTokenRequestToJSON(json: any): CreateAccessTokenRequest {
+      return CreateAccessTokenRequestToJSONTyped(json, false);
+  }
+
+  export function CreateAccessTokenRequestToJSONTyped(value?: CreateAccessTokenRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'username': value['username'],

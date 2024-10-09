@@ -24,7 +24,7 @@ export interface GetStatisticsRequest {
      * @type {string}
      * @memberof GetStatisticsRequest
      */
-    linkId?: string;
+    linkId: string;
     /**
      * Get statistics from this date
      * @type {Date}
@@ -49,6 +49,7 @@ export interface GetStatisticsRequest {
  * Check if a given object implements the GetStatisticsRequest interface.
  */
 export function instanceOfGetStatisticsRequest(value: object): value is GetStatisticsRequest {
+    if (!('linkId' in value) || value['linkId'] === undefined) return false;
     return true;
 }
 
@@ -62,17 +63,22 @@ export function GetStatisticsRequestFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'linkId': json['link_id'] == null ? undefined : json['link_id'],
+        'linkId': json['link_id'],
         'from': json['from'] == null ? undefined : (new Date(json['from'])),
         'to': json['to'] == null ? undefined : (new Date(json['to'])),
         'includeBots': json['include_bots'] == null ? undefined : json['include_bots'],
     };
 }
 
-export function GetStatisticsRequestToJSON(value?: GetStatisticsRequest | null): any {
+  export function GetStatisticsRequestToJSON(json: any): GetStatisticsRequest {
+      return GetStatisticsRequestToJSONTyped(json, false);
+  }
+
+  export function GetStatisticsRequestToJSONTyped(value?: GetStatisticsRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'link_id': value['linkId'],

@@ -18,6 +18,7 @@ import {
     GetFolders200ResponseFoldersInnerFromJSON,
     GetFolders200ResponseFoldersInnerFromJSONTyped,
     GetFolders200ResponseFoldersInnerToJSON,
+    GetFolders200ResponseFoldersInnerToJSONTyped,
 } from './GetFolders200ResponseFoldersInner';
 
 /**
@@ -55,10 +56,15 @@ export function GetFolders200ResponseFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-export function GetFolders200ResponseToJSON(value?: GetFolders200Response | null): any {
+  export function GetFolders200ResponseToJSON(json: any): GetFolders200Response {
+      return GetFolders200ResponseToJSONTyped(json, false);
+  }
+
+  export function GetFolders200ResponseToJSONTyped(value?: GetFolders200Response | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'folders': value['folders'] == null ? undefined : ((value['folders'] as Array<any>).map(GetFolders200ResponseFoldersInnerToJSON)),

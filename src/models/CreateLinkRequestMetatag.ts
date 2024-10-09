@@ -62,10 +62,15 @@ export function CreateLinkRequestMetatagFromJSONTyped(json: any, ignoreDiscrimin
     };
 }
 
-export function CreateLinkRequestMetatagToJSON(value?: CreateLinkRequestMetatag | null): any {
+  export function CreateLinkRequestMetatagToJSON(json: any): CreateLinkRequestMetatag {
+      return CreateLinkRequestMetatagToJSONTyped(json, false);
+  }
+
+  export function CreateLinkRequestMetatagToJSONTyped(value?: CreateLinkRequestMetatag | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'title': value['title'],

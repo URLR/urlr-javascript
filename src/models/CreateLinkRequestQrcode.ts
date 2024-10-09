@@ -88,10 +88,15 @@ export function CreateLinkRequestQrcodeFromJSONTyped(json: any, ignoreDiscrimina
     };
 }
 
-export function CreateLinkRequestQrcodeToJSON(value?: CreateLinkRequestQrcode | null): any {
+  export function CreateLinkRequestQrcodeToJSON(json: any): CreateLinkRequestQrcode {
+      return CreateLinkRequestQrcodeToJSONTyped(json, false);
+  }
+
+  export function CreateLinkRequestQrcodeToJSONTyped(value?: CreateLinkRequestQrcode | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'size': value['size'],

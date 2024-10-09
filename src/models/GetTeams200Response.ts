@@ -18,6 +18,7 @@ import {
     GetTeams200ResponseTeamsInnerFromJSON,
     GetTeams200ResponseTeamsInnerFromJSONTyped,
     GetTeams200ResponseTeamsInnerToJSON,
+    GetTeams200ResponseTeamsInnerToJSONTyped,
 } from './GetTeams200ResponseTeamsInner';
 
 /**
@@ -55,10 +56,15 @@ export function GetTeams200ResponseFromJSONTyped(json: any, ignoreDiscriminator:
     };
 }
 
-export function GetTeams200ResponseToJSON(value?: GetTeams200Response | null): any {
+  export function GetTeams200ResponseToJSON(json: any): GetTeams200Response {
+      return GetTeams200ResponseToJSONTyped(json, false);
+  }
+
+  export function GetTeams200ResponseToJSONTyped(value?: GetTeams200Response | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'teams': value['teams'] == null ? undefined : ((value['teams'] as Array<any>).map(GetTeams200ResponseTeamsInnerToJSON)),

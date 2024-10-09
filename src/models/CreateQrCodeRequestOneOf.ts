@@ -57,10 +57,15 @@ export function CreateQrCodeRequestOneOfFromJSONTyped(json: any, ignoreDiscrimin
     };
 }
 
-export function CreateQrCodeRequestOneOfToJSON(value?: CreateQrCodeRequestOneOf | null): any {
+  export function CreateQrCodeRequestOneOfToJSON(json: any): CreateQrCodeRequestOneOf {
+      return CreateQrCodeRequestOneOfToJSONTyped(json, false);
+  }
+
+  export function CreateQrCodeRequestOneOfToJSONTyped(value?: CreateQrCodeRequestOneOf | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'url': value['url'],

@@ -69,10 +69,15 @@ export function GetLink404ResponseFromJSONTyped(json: any, ignoreDiscriminator: 
     };
 }
 
-export function GetLink404ResponseToJSON(value?: GetLink404Response | null): any {
+  export function GetLink404ResponseToJSON(json: any): GetLink404Response {
+      return GetLink404ResponseToJSONTyped(json, false);
+  }
+
+  export function GetLink404ResponseToJSONTyped(value?: GetLink404Response | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'type': value['type'],
