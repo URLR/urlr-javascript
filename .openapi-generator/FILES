@@ -27,6 +27,7 @@ src/models/GetLink200Response.ts
 src/models/GetLink200ResponseGeolinksInner.ts
 src/models/GetLink200ResponseMetatag.ts
 src/models/GetLink200ResponseQrcode.ts
+src/models/GetLink200ResponseUtm.ts
 src/models/GetLink401Response.ts
 src/models/GetLink404Response.ts
 src/models/GetLink422Response.ts
