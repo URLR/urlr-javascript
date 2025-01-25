@@ -55,11 +55,11 @@ export function RefreshAccessToken401ResponseFromJSONTyped(json: any, ignoreDisc
     };
 }
 
-  export function RefreshAccessToken401ResponseToJSON(json: any): RefreshAccessToken401Response {
-      return RefreshAccessToken401ResponseToJSONTyped(json, false);
-  }
+export function RefreshAccessToken401ResponseToJSON(json: any): RefreshAccessToken401Response {
+    return RefreshAccessToken401ResponseToJSONTyped(json, false);
+}
 
-  export function RefreshAccessToken401ResponseToJSONTyped(value?: RefreshAccessToken401Response | null, ignoreDiscriminator: boolean = false): any {
+export function RefreshAccessToken401ResponseToJSONTyped(value?: RefreshAccessToken401Response | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

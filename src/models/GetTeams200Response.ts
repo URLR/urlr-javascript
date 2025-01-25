@@ -56,11 +56,11 @@ export function GetTeams200ResponseFromJSONTyped(json: any, ignoreDiscriminator:
     };
 }
 
-  export function GetTeams200ResponseToJSON(json: any): GetTeams200Response {
-      return GetTeams200ResponseToJSONTyped(json, false);
-  }
+export function GetTeams200ResponseToJSON(json: any): GetTeams200Response {
+    return GetTeams200ResponseToJSONTyped(json, false);
+}
 
-  export function GetTeams200ResponseToJSONTyped(value?: GetTeams200Response | null, ignoreDiscriminator: boolean = false): any {
+export function GetTeams200ResponseToJSONTyped(value?: GetTeams200Response | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -62,11 +62,11 @@ export function GetLink200ResponseGeolinksInnerFromJSONTyped(json: any, ignoreDi
     };
 }
 
-  export function GetLink200ResponseGeolinksInnerToJSON(json: any): GetLink200ResponseGeolinksInner {
-      return GetLink200ResponseGeolinksInnerToJSONTyped(json, false);
-  }
+export function GetLink200ResponseGeolinksInnerToJSON(json: any): GetLink200ResponseGeolinksInner {
+    return GetLink200ResponseGeolinksInnerToJSONTyped(json, false);
+}
 
-  export function GetLink200ResponseGeolinksInnerToJSONTyped(value?: GetLink200ResponseGeolinksInner | null, ignoreDiscriminator: boolean = false): any {
+export function GetLink200ResponseGeolinksInnerToJSONTyped(value?: GetLink200ResponseGeolinksInner | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -62,11 +62,11 @@ export function GetStatistics200ResponseFromJSONTyped(json: any, ignoreDiscrimin
     };
 }
 
-  export function GetStatistics200ResponseToJSON(json: any): GetStatistics200Response {
-      return GetStatistics200ResponseToJSONTyped(json, false);
-  }
+export function GetStatistics200ResponseToJSON(json: any): GetStatistics200Response {
+    return GetStatistics200ResponseToJSONTyped(json, false);
+}
 
-  export function GetStatistics200ResponseToJSONTyped(value?: GetStatistics200Response | null, ignoreDiscriminator: boolean = false): any {
+export function GetStatistics200ResponseToJSONTyped(value?: GetStatistics200Response | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -69,11 +69,11 @@ export function CreateLink500ResponseFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-  export function CreateLink500ResponseToJSON(json: any): CreateLink500Response {
-      return CreateLink500ResponseToJSONTyped(json, false);
-  }
+export function CreateLink500ResponseToJSON(json: any): CreateLink500Response {
+    return CreateLink500ResponseToJSONTyped(json, false);
+}
 
-  export function CreateLink500ResponseToJSONTyped(value?: CreateLink500Response | null, ignoreDiscriminator: boolean = false): any {
+export function CreateLink500ResponseToJSONTyped(value?: CreateLink500Response | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

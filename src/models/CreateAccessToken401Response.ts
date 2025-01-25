@@ -55,11 +55,11 @@ export function CreateAccessToken401ResponseFromJSONTyped(json: any, ignoreDiscr
     };
 }
 
-  export function CreateAccessToken401ResponseToJSON(json: any): CreateAccessToken401Response {
-      return CreateAccessToken401ResponseToJSONTyped(json, false);
-  }
+export function CreateAccessToken401ResponseToJSON(json: any): CreateAccessToken401Response {
+    return CreateAccessToken401ResponseToJSONTyped(json, false);
+}
 
-  export function CreateAccessToken401ResponseToJSONTyped(value?: CreateAccessToken401Response | null, ignoreDiscriminator: boolean = false): any {
+export function CreateAccessToken401ResponseToJSONTyped(value?: CreateAccessToken401Response | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

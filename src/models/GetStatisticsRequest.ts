@@ -70,11 +70,11 @@ export function GetStatisticsRequestFromJSONTyped(json: any, ignoreDiscriminator
     };
 }
 
-  export function GetStatisticsRequestToJSON(json: any): GetStatisticsRequest {
-      return GetStatisticsRequestToJSONTyped(json, false);
-  }
+export function GetStatisticsRequestToJSON(json: any): GetStatisticsRequest {
+    return GetStatisticsRequestToJSONTyped(json, false);
+}
 
-  export function GetStatisticsRequestToJSONTyped(value?: GetStatisticsRequest | null, ignoreDiscriminator: boolean = false): any {
+export function GetStatisticsRequestToJSONTyped(value?: GetStatisticsRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

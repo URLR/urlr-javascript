@@ -49,11 +49,11 @@ export function RefreshAccessTokenRequestFromJSONTyped(json: any, ignoreDiscrimi
     };
 }
 
-  export function RefreshAccessTokenRequestToJSON(json: any): RefreshAccessTokenRequest {
-      return RefreshAccessTokenRequestToJSONTyped(json, false);
-  }
+export function RefreshAccessTokenRequestToJSON(json: any): RefreshAccessTokenRequest {
+    return RefreshAccessTokenRequestToJSONTyped(json, false);
+}
 
-  export function RefreshAccessTokenRequestToJSONTyped(value?: RefreshAccessTokenRequest | null, ignoreDiscriminator: boolean = false): any {
+export function RefreshAccessTokenRequestToJSONTyped(value?: RefreshAccessTokenRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

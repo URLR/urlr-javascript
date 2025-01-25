@@ -62,11 +62,11 @@ export function CreateLinkRequestMetatagFromJSONTyped(json: any, ignoreDiscrimin
     };
 }
 
-  export function CreateLinkRequestMetatagToJSON(json: any): CreateLinkRequestMetatag {
-      return CreateLinkRequestMetatagToJSONTyped(json, false);
-  }
+export function CreateLinkRequestMetatagToJSON(json: any): CreateLinkRequestMetatag {
+    return CreateLinkRequestMetatagToJSONTyped(json, false);
+}
 
-  export function CreateLinkRequestMetatagToJSONTyped(value?: CreateLinkRequestMetatag | null, ignoreDiscriminator: boolean = false): any {
+export function CreateLinkRequestMetatagToJSONTyped(value?: CreateLinkRequestMetatag | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

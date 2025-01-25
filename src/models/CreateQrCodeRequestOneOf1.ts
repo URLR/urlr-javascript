@@ -49,11 +49,11 @@ export function CreateQrCodeRequestOneOf1FromJSONTyped(json: any, ignoreDiscrimi
     };
 }
 
-  export function CreateQrCodeRequestOneOf1ToJSON(json: any): CreateQrCodeRequestOneOf1 {
-      return CreateQrCodeRequestOneOf1ToJSONTyped(json, false);
-  }
+export function CreateQrCodeRequestOneOf1ToJSON(json: any): CreateQrCodeRequestOneOf1 {
+    return CreateQrCodeRequestOneOf1ToJSONTyped(json, false);
+}
 
-  export function CreateQrCodeRequestOneOf1ToJSONTyped(value?: CreateQrCodeRequestOneOf1 | null, ignoreDiscriminator: boolean = false): any {
+export function CreateQrCodeRequestOneOf1ToJSONTyped(value?: CreateQrCodeRequestOneOf1 | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

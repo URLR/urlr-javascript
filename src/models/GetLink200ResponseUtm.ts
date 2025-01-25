@@ -69,11 +69,11 @@ export function GetLink200ResponseUtmFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-  export function GetLink200ResponseUtmToJSON(json: any): GetLink200ResponseUtm {
-      return GetLink200ResponseUtmToJSONTyped(json, false);
-  }
+export function GetLink200ResponseUtmToJSON(json: any): GetLink200ResponseUtm {
+    return GetLink200ResponseUtmToJSONTyped(json, false);
+}
 
-  export function GetLink200ResponseUtmToJSONTyped(value?: GetLink200ResponseUtm | null, ignoreDiscriminator: boolean = false): any {
+export function GetLink200ResponseUtmToJSONTyped(value?: GetLink200ResponseUtm | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

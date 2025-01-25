@@ -55,11 +55,11 @@ export function GetTeams200ResponseTeamsInnerFromJSONTyped(json: any, ignoreDisc
     };
 }
 
-  export function GetTeams200ResponseTeamsInnerToJSON(json: any): GetTeams200ResponseTeamsInner {
-      return GetTeams200ResponseTeamsInnerToJSONTyped(json, false);
-  }
+export function GetTeams200ResponseTeamsInnerToJSON(json: any): GetTeams200ResponseTeamsInner {
+    return GetTeams200ResponseTeamsInnerToJSONTyped(json, false);
+}
 
-  export function GetTeams200ResponseTeamsInnerToJSONTyped(value?: GetTeams200ResponseTeamsInner | null, ignoreDiscriminator: boolean = false): any {
+export function GetTeams200ResponseTeamsInnerToJSONTyped(value?: GetTeams200ResponseTeamsInner | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

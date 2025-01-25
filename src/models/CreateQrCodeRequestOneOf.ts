@@ -57,11 +57,11 @@ export function CreateQrCodeRequestOneOfFromJSONTyped(json: any, ignoreDiscrimin
     };
 }
 
-  export function CreateQrCodeRequestOneOfToJSON(json: any): CreateQrCodeRequestOneOf {
-      return CreateQrCodeRequestOneOfToJSONTyped(json, false);
-  }
+export function CreateQrCodeRequestOneOfToJSON(json: any): CreateQrCodeRequestOneOf {
+    return CreateQrCodeRequestOneOfToJSONTyped(json, false);
+}
 
-  export function CreateQrCodeRequestOneOfToJSONTyped(value?: CreateQrCodeRequestOneOf | null, ignoreDiscriminator: boolean = false): any {
+export function CreateQrCodeRequestOneOfToJSONTyped(value?: CreateQrCodeRequestOneOf | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

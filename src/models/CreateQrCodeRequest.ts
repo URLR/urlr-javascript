@@ -52,7 +52,11 @@ export function CreateQrCodeRequestFromJSONTyped(json: any, ignoreDiscriminator:
     return {} as any;
 }
 
-export function CreateQrCodeRequestToJSON(value?: CreateQrCodeRequest | null): any {
+export function CreateQrCodeRequestToJSON(json: any): any {
+    return CreateQrCodeRequestToJSONTyped(json, false);
+}
+
+export function CreateQrCodeRequestToJSONTyped(value?: CreateQrCodeRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

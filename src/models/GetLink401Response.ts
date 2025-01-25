@@ -69,11 +69,11 @@ export function GetLink401ResponseFromJSONTyped(json: any, ignoreDiscriminator: 
     };
 }
 
-  export function GetLink401ResponseToJSON(json: any): GetLink401Response {
-      return GetLink401ResponseToJSONTyped(json, false);
-  }
+export function GetLink401ResponseToJSON(json: any): GetLink401Response {
+    return GetLink401ResponseToJSONTyped(json, false);
+}
 
-  export function GetLink401ResponseToJSONTyped(value?: GetLink401Response | null, ignoreDiscriminator: boolean = false): any {
+export function GetLink401ResponseToJSONTyped(value?: GetLink401Response | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

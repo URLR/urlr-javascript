@@ -175,11 +175,11 @@ export function GetLink200ResponseFromJSONTyped(json: any, ignoreDiscriminator: 
     };
 }
 
-  export function GetLink200ResponseToJSON(json: any): GetLink200Response {
-      return GetLink200ResponseToJSONTyped(json, false);
-  }
+export function GetLink200ResponseToJSON(json: any): GetLink200Response {
+    return GetLink200ResponseToJSONTyped(json, false);
+}
 
-  export function GetLink200ResponseToJSONTyped(value?: GetLink200Response | null, ignoreDiscriminator: boolean = false): any {
+export function GetLink200ResponseToJSONTyped(value?: GetLink200Response | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

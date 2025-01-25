@@ -149,11 +149,11 @@ export function CreateLinkRequestFromJSONTyped(json: any, ignoreDiscriminator: b
     };
 }
 
-  export function CreateLinkRequestToJSON(json: any): CreateLinkRequest {
-      return CreateLinkRequestToJSONTyped(json, false);
-  }
+export function CreateLinkRequestToJSON(json: any): CreateLinkRequest {
+    return CreateLinkRequestToJSONTyped(json, false);
+}
 
-  export function CreateLinkRequestToJSONTyped(value?: CreateLinkRequest | null, ignoreDiscriminator: boolean = false): any {
+export function CreateLinkRequestToJSONTyped(value?: CreateLinkRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

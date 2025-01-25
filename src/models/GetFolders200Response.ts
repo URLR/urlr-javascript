@@ -56,11 +56,11 @@ export function GetFolders200ResponseFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-  export function GetFolders200ResponseToJSON(json: any): GetFolders200Response {
-      return GetFolders200ResponseToJSONTyped(json, false);
-  }
+export function GetFolders200ResponseToJSON(json: any): GetFolders200Response {
+    return GetFolders200ResponseToJSONTyped(json, false);
+}
 
-  export function GetFolders200ResponseToJSONTyped(value?: GetFolders200Response | null, ignoreDiscriminator: boolean = false): any {
+export function GetFolders200ResponseToJSONTyped(value?: GetFolders200Response | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

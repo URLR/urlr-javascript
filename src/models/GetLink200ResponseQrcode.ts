@@ -48,11 +48,11 @@ export function GetLink200ResponseQrcodeFromJSONTyped(json: any, ignoreDiscrimin
     };
 }
 
-  export function GetLink200ResponseQrcodeToJSON(json: any): GetLink200ResponseQrcode {
-      return GetLink200ResponseQrcodeToJSONTyped(json, false);
-  }
+export function GetLink200ResponseQrcodeToJSON(json: any): GetLink200ResponseQrcode {
+    return GetLink200ResponseQrcodeToJSONTyped(json, false);
+}
 
-  export function GetLink200ResponseQrcodeToJSONTyped(value?: GetLink200ResponseQrcode | null, ignoreDiscriminator: boolean = false): any {
+export function GetLink200ResponseQrcodeToJSONTyped(value?: GetLink200ResponseQrcode | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
