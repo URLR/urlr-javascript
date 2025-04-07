@@ -82,7 +82,7 @@ export interface CreateLinkRequest {
      * @type {Array<string>}
      * @memberof CreateLinkRequest
      */
-    ?: Array<string>;
+    tags?: Array<string>;
     /**
      * Password
      * @type {string}
@@ -158,7 +158,7 @@ export function CreateLinkRequestFromJSONTyped(json: any, ignoreDiscriminator: b
         'domain': json['domain'] == null ? undefined : json['domain'],
         'code': json['code'] == null ? undefined : json['code'],
         'label': json['label'] == null ? undefined : json['label'],
-        '': json[''] == null ? undefined : json[''],
+        'tags': json['tags'] == null ? undefined : json['tags'],
         'password': json['password'] == null ? undefined : json['password'],
         'qrcode': json['qrcode'] == null ? undefined : CreateLinkRequestQrcodeFromJSON(json['qrcode']),
         'utm': json['utm'] == null ? undefined : GetLink200ResponseUtmFromJSON(json['utm']),
@@ -187,7 +187,7 @@ export function CreateLinkRequestToJSONTyped(value?: CreateLinkRequest | null, i
         'domain': value['domain'],
         'code': value['code'],
         'label': value['label'],
-        '': value[''],
+        'tags': value['tags'],
         'password': value['password'],
         'qrcode': CreateLinkRequestQrcodeToJSON(value['qrcode']),
         'utm': GetLink200ResponseUtmToJSON(value['utm']),
