@@ -6,7 +6,7 @@ TypeScript/JavaScript client for URLR, the GDPR-compliant all-in-one platform fo
 
 This SDK is automatically generated with the [OpenAPI Generator](https://openapi-generator.tech) project.
 
-- API version: 1.5
+- API version: 1.7
 - Package version: 2.7.0
 - Build package: urlr-js
 

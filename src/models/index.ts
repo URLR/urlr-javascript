@@ -17,6 +17,7 @@ export * from './GetLink200Response';
 export * from './GetLink200ResponseGeolinksInner';
 export * from './GetLink200ResponseMetatag';
 export * from './GetLink200ResponseQrcode';
+export * from './GetLink200ResponseTagsInner';
 export * from './GetLink200ResponseUtm';
 export * from './GetLink401Response';
 export * from './GetLink404Response';

@@ -16,35 +16,35 @@ import { mapValues } from '../runtime';
 /**
  * 
  * @export
- * @interface GetTeams200ResponseTeamsInner
+ * @interface GetLink200ResponseTagsInner
  */
-export interface GetTeams200ResponseTeamsInner {
+export interface GetLink200ResponseTagsInner {
     /**
-     * Team API ID
+     * ID
      * @type {string}
-     * @memberof GetTeams200ResponseTeamsInner
+     * @memberof GetLink200ResponseTagsInner
      */
     id?: string;
     /**
-     * Team name
+     * Name
      * @type {string}
-     * @memberof GetTeams200ResponseTeamsInner
+     * @memberof GetLink200ResponseTagsInner
      */
     name?: string;
 }
 
 /**
- * Check if a given object implements the GetTeams200ResponseTeamsInner interface.
+ * Check if a given object implements the GetLink200ResponseTagsInner interface.
  */
-export function instanceOfGetTeams200ResponseTeamsInner(value: object): value is GetTeams200ResponseTeamsInner {
+export function instanceOfGetLink200ResponseTagsInner(value: object): value is GetLink200ResponseTagsInner {
     return true;
 }
 
-export function GetTeams200ResponseTeamsInnerFromJSON(json: any): GetTeams200ResponseTeamsInner {
-    return GetTeams200ResponseTeamsInnerFromJSONTyped(json, false);
+export function GetLink200ResponseTagsInnerFromJSON(json: any): GetLink200ResponseTagsInner {
+    return GetLink200ResponseTagsInnerFromJSONTyped(json, false);
 }
 
-export function GetTeams200ResponseTeamsInnerFromJSONTyped(json: any, ignoreDiscriminator: boolean): GetTeams200ResponseTeamsInner {
+export function GetLink200ResponseTagsInnerFromJSONTyped(json: any, ignoreDiscriminator: boolean): GetLink200ResponseTagsInner {
     if (json == null) {
         return json;
     }
@@ -55,11 +55,11 @@ export function GetTeams200ResponseTeamsInnerFromJSONTyped(json: any, ignoreDisc
     };
 }
 
-export function GetTeams200ResponseTeamsInnerToJSON(json: any): GetTeams200ResponseTeamsInner {
-    return GetTeams200ResponseTeamsInnerToJSONTyped(json, false);
+export function GetLink200ResponseTagsInnerToJSON(json: any): GetLink200ResponseTagsInner {
+    return GetLink200ResponseTagsInnerToJSONTyped(json, false);
 }
 
-export function GetTeams200ResponseTeamsInnerToJSONTyped(value?: GetTeams200ResponseTeamsInner | null, ignoreDiscriminator: boolean = false): any {
+export function GetLink200ResponseTagsInnerToJSONTyped(value?: GetLink200ResponseTagsInner | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

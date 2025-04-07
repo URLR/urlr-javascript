@@ -8,8 +8,8 @@
     "url": "https://github.com/urlr/urlr-javascript.git"
   },
   "homepage": "https://urlr.me/en",
-  "license": "MIT",
   "keywords": ["link shortener", "api", "sdk", "client"],
+  "license": "MIT",
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
   "scripts": {
