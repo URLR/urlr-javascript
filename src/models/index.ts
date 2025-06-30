@@ -3,6 +3,9 @@
 export * from './CreateAccessToken200Response';
 export * from './CreateAccessToken401Response';
 export * from './CreateAccessTokenRequest';
+export * from './CreateDomain200Response';
+export * from './CreateDomain409Response';
+export * from './CreateDomainRequest';
 export * from './CreateLink429Response';
 export * from './CreateLink500Response';
 export * from './CreateLinkRequest';
@@ -15,6 +18,7 @@ export * from './GetFolders200Response';
 export * from './GetFolders200ResponseFoldersInner';
 export * from './GetLink200Response';
 export * from './GetLink200ResponseGeolinksInner';
+export * from './GetLink200ResponseGeolinksInnerConditionsInner';
 export * from './GetLink200ResponseMetatag';
 export * from './GetLink200ResponseQrcode';
 export * from './GetLink200ResponseTagsInner';

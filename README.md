@@ -1,4 +1,4 @@
-# urlr-js@2.8.1
+# urlr-js@2.9.0
 
 ![NPM Version](https://img.shields.io/npm/v/urlr-js) ![NPM Downloads](https://img.shields.io/npm/dm/urlr-js) ![NPM License](https://img.shields.io/npm/l/urlr-js)
 
@@ -6,8 +6,8 @@ TypeScript/JavaScript client for URLR, the GDPR-compliant all-in-one platform fo
 
 This SDK is automatically generated with the [OpenAPI Generator](https://openapi-generator.tech) project.
 
-- API version: 1.7
-- Package version: 2.8.1
+- API version: 1.9
+- Package version: 2.9.0
 - Build package: urlr-js
 
 For more information, please visit [https://urlr.me/en](https://urlr.me/en)
@@ -44,13 +44,13 @@ Navigate to the folder of your project and run one of the following commands:
 ### NPM
 
 ```
-npm install urlr-js@2.8.1
+npm install urlr-js@2.9.0
 ```
 
 ### Yarn
 
 ```
-yarn install urlr-js@2.8.1
+yarn install urlr-js@2.9.0
 ```
 
 ## Getting Started
@@ -95,6 +95,7 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AccessTokensApi* | **createAccessToken** | **POST** /access_tokens/create | Get an access token
 *AccessTokensApi* | **refreshAccessToken** | **POST** /access_tokens/refresh | Refresh an access token
+*DomainsApi* | **createDomain** | **POST** /domains/create | Create a domain
 *FoldersApi* | **getFolders** | **GET** /folders/{team_id} | Get folders of team
 *LinksApi* | **createLink** | **POST** /links/create | Create a link
 *LinksApi* | **getLink** | **GET** /links/{link_id} | Get a link

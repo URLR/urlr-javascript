@@ -15,71 +15,63 @@
 
 import * as runtime from '../runtime';
 import type {
+  CreateDomain200Response,
+  CreateDomain409Response,
+  CreateDomainRequest,
   CreateLink429Response,
-  CreateLink500Response,
-  CreateQrCodeRequest,
   GetLink401Response,
-  GetLink422Response,
 } from '../models/index';
 import {
+    CreateDomain200ResponseFromJSON,
+    CreateDomain200ResponseToJSON,
+    CreateDomain409ResponseFromJSON,
+    CreateDomain409ResponseToJSON,
+    CreateDomainRequestFromJSON,
+    CreateDomainRequestToJSON,
     CreateLink429ResponseFromJSON,
     CreateLink429ResponseToJSON,
-    CreateLink500ResponseFromJSON,
-    CreateLink500ResponseToJSON,
-    CreateQrCodeRequestFromJSON,
-    CreateQrCodeRequestToJSON,
     GetLink401ResponseFromJSON,
     GetLink401ResponseToJSON,
-    GetLink422ResponseFromJSON,
-    GetLink422ResponseToJSON,
 } from '../models/index';
 
-export interface CreateQrCodeOperationRequest {
-    createQrCodeRequest?: CreateQrCodeRequest;
+export interface CreateDomainOperationRequest {
+    createDomainRequest?: CreateDomainRequest;
 }
 
 /**
  * 
  */
-export class QRCodesApi extends runtime.BaseAPI {
+export class DomainsApi extends runtime.BaseAPI {
 
     /**
-     * Create a QR Code
+     * Create a domain
      */
-    async createQrCodeRaw(requestParameters: CreateQrCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Blob>> {
+    async createDomainRaw(requestParameters: CreateDomainOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateDomain200Response>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
 
         headerParameters['Content-Type'] = 'application/json';
 
-        if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("bearerAuth", []);
 
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
-        }
-
-        let urlPath = `/qrcodes/create`;
+        let urlPath = `/domains/create`;
 
         const response = await this.request({
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CreateQrCodeRequestToJSON(requestParameters['createQrCodeRequest']),
+            body: CreateDomainRequestToJSON(requestParameters['createDomainRequest']),
         }, initOverrides);
 
-        return new runtime.BlobApiResponse(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => CreateDomain200ResponseFromJSON(jsonValue));
     }
 
     /**
-     * Create a QR Code
+     * Create a domain
      */
-    async createQrCode(requestParameters: CreateQrCodeOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Blob> {
-        const response = await this.createQrCodeRaw(requestParameters, initOverrides);
+    async createDomain(requestParameters: CreateDomainOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateDomain200Response> {
+        const response = await this.createDomainRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

@@ -16,47 +16,47 @@ import { mapValues } from '../runtime';
 /**
  * 
  * @export
- * @interface GetLink422Response
+ * @interface CreateDomain409Response
  */
-export interface GetLink422Response {
+export interface CreateDomain409Response {
     /**
      * 
      * @type {string}
-     * @memberof GetLink422Response
+     * @memberof CreateDomain409Response
      */
     type?: string;
     /**
      * 
      * @type {string}
-     * @memberof GetLink422Response
+     * @memberof CreateDomain409Response
      */
     title?: string;
     /**
      * 
      * @type {number}
-     * @memberof GetLink422Response
+     * @memberof CreateDomain409Response
      */
     status?: number;
     /**
      * 
      * @type {string}
-     * @memberof GetLink422Response
+     * @memberof CreateDomain409Response
      */
     detail?: string;
 }
 
 /**
- * Check if a given object implements the GetLink422Response interface.
+ * Check if a given object implements the CreateDomain409Response interface.
  */
-export function instanceOfGetLink422Response(value: object): value is GetLink422Response {
+export function instanceOfCreateDomain409Response(value: object): value is CreateDomain409Response {
     return true;
 }
 
-export function GetLink422ResponseFromJSON(json: any): GetLink422Response {
-    return GetLink422ResponseFromJSONTyped(json, false);
+export function CreateDomain409ResponseFromJSON(json: any): CreateDomain409Response {
+    return CreateDomain409ResponseFromJSONTyped(json, false);
 }
 
-export function GetLink422ResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): GetLink422Response {
+export function CreateDomain409ResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreateDomain409Response {
     if (json == null) {
         return json;
     }
@@ -69,11 +69,11 @@ export function GetLink422ResponseFromJSONTyped(json: any, ignoreDiscriminator: 
     };
 }
 
-export function GetLink422ResponseToJSON(json: any): GetLink422Response {
-    return GetLink422ResponseToJSONTyped(json, false);
+export function CreateDomain409ResponseToJSON(json: any): CreateDomain409Response {
+    return CreateDomain409ResponseToJSONTyped(json, false);
 }
 
-export function GetLink422ResponseToJSONTyped(value?: GetLink422Response | null, ignoreDiscriminator: boolean = false): any {
+export function CreateDomain409ResponseToJSONTyped(value?: CreateDomain409Response | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
