@@ -13,20 +13,20 @@
  */
 
 import { mapValues } from '../runtime';
-import type { GetLink200ResponseMetatag } from './GetLink200ResponseMetatag';
+import type { LinkBaseRequestMetatag } from './LinkBaseRequestMetatag';
 import {
-    GetLink200ResponseMetatagFromJSON,
-    GetLink200ResponseMetatagFromJSONTyped,
-    GetLink200ResponseMetatagToJSON,
-    GetLink200ResponseMetatagToJSONTyped,
-} from './GetLink200ResponseMetatag';
-import type { GetLink200ResponseTagsInner } from './GetLink200ResponseTagsInner';
+    LinkBaseRequestMetatagFromJSON,
+    LinkBaseRequestMetatagFromJSONTyped,
+    LinkBaseRequestMetatagToJSON,
+    LinkBaseRequestMetatagToJSONTyped,
+} from './LinkBaseRequestMetatag';
+import type { LinkBaseRequestQrcode } from './LinkBaseRequestQrcode';
 import {
-    GetLink200ResponseTagsInnerFromJSON,
-    GetLink200ResponseTagsInnerFromJSONTyped,
-    GetLink200ResponseTagsInnerToJSON,
-    GetLink200ResponseTagsInnerToJSONTyped,
-} from './GetLink200ResponseTagsInner';
+    LinkBaseRequestQrcodeFromJSON,
+    LinkBaseRequestQrcodeFromJSONTyped,
+    LinkBaseRequestQrcodeToJSON,
+    LinkBaseRequestQrcodeToJSONTyped,
+} from './LinkBaseRequestQrcode';
 import type { GetLink200ResponseUtm } from './GetLink200ResponseUtm';
 import {
     GetLink200ResponseUtmFromJSON,
@@ -41,197 +41,176 @@ import {
     GetLink200ResponseGeolinksInnerToJSON,
     GetLink200ResponseGeolinksInnerToJSONTyped,
 } from './GetLink200ResponseGeolinksInner';
-import type { GetLink200ResponseQrcode } from './GetLink200ResponseQrcode';
-import {
-    GetLink200ResponseQrcodeFromJSON,
-    GetLink200ResponseQrcodeFromJSONTyped,
-    GetLink200ResponseQrcodeToJSON,
-    GetLink200ResponseQrcodeToJSONTyped,
-} from './GetLink200ResponseQrcode';
 
 /**
  * 
  * @export
- * @interface GetLink200Response
+ * @interface LinkCreateRequest
  */
-export interface GetLink200Response {
+export interface LinkCreateRequest {
     /**
-     * Link API ID
+     * URL to shorten
      * @type {string}
-     * @memberof GetLink200Response
+     * @memberof LinkCreateRequest
      */
-    id?: string;
-    /**
-     * Original URL
-     * @type {string}
-     * @memberof GetLink200Response
-     */
-    url?: string;
-    /**
-     * Workspace API ID
-     * @type {string}
-     * @memberof GetLink200Response
-     */
-    teamId?: string;
+    url: string;
     /**
      * Folder API ID
      * @type {string}
-     * @memberof GetLink200Response
+     * @memberof LinkCreateRequest
      */
     folderId?: string;
     /**
      * Domain
      * @type {string}
-     * @memberof GetLink200Response
+     * @memberof LinkCreateRequest
      */
     domain?: string;
     /**
-     * Short code
+     * Custom short code
      * @type {string}
-     * @memberof GetLink200Response
+     * @memberof LinkCreateRequest
      */
     code?: string;
     /**
      * Label
      * @type {string}
-     * @memberof GetLink200Response
+     * @memberof LinkCreateRequest
      */
     label?: string;
     /**
      * Tags
-     * @type {Array<GetLink200ResponseTagsInner>}
-     * @memberof GetLink200Response
+     * @type {Array<string>}
+     * @memberof LinkCreateRequest
      */
-    tags?: Array<GetLink200ResponseTagsInner>;
+    tags?: Array<string>;
+    /**
+     * Password
+     * @type {string}
+     * @memberof LinkCreateRequest
+     */
+    password?: string;
     /**
      * 
-     * @type {GetLink200ResponseQrcode}
-     * @memberof GetLink200Response
+     * @type {LinkBaseRequestQrcode}
+     * @memberof LinkCreateRequest
      */
-    qrcode?: GetLink200ResponseQrcode;
+    qrcode?: LinkBaseRequestQrcode;
     /**
      * 
      * @type {GetLink200ResponseUtm}
-     * @memberof GetLink200Response
+     * @memberof LinkCreateRequest
      */
     utm?: GetLink200ResponseUtm;
     /**
      * 
-     * @type {GetLink200ResponseMetatag}
-     * @memberof GetLink200Response
+     * @type {LinkBaseRequestMetatag}
+     * @memberof LinkCreateRequest
      */
-    metatag?: GetLink200ResponseMetatag;
+    metatag?: LinkBaseRequestMetatag;
     /**
      * Dynamic routing conditions
      * @type {Array<GetLink200ResponseGeolinksInner>}
-     * @memberof GetLink200Response
+     * @memberof LinkCreateRequest
      */
     geolinks?: Array<GetLink200ResponseGeolinksInner>;
     /**
-     * Creation date
-     * @type {Date}
-     * @memberof GetLink200Response
-     */
-    createdAt?: Date;
-    /**
-     * Modification date
-     * @type {Date}
-     * @memberof GetLink200Response
-     */
-    updatedAt?: Date;
-    /**
      * Scheduled deletion date
      * @type {Date}
-     * @memberof GetLink200Response
+     * @memberof LinkCreateRequest
      */
     deleteAt?: Date;
     /**
      * Scheduled expiration date
      * @type {Date}
-     * @memberof GetLink200Response
+     * @memberof LinkCreateRequest
      */
     expiredAt?: Date;
     /**
      * Expiration URL
      * @type {string}
-     * @memberof GetLink200Response
+     * @memberof LinkCreateRequest
      */
     expiredUrl?: string;
     /**
      * Whether or not to remove the link after the expiry date
      * @type {boolean}
-     * @memberof GetLink200Response
+     * @memberof LinkCreateRequest
      */
     deleteAfterExpiration?: boolean;
+    /**
+     * Workspace API ID
+     * @type {string}
+     * @memberof LinkCreateRequest
+     */
+    teamId: string;
 }
 
 /**
- * Check if a given object implements the GetLink200Response interface.
+ * Check if a given object implements the LinkCreateRequest interface.
  */
-export function instanceOfGetLink200Response(value: object): value is GetLink200Response {
+export function instanceOfLinkCreateRequest(value: object): value is LinkCreateRequest {
+    if (!('url' in value) || value['url'] === undefined) return false;
+    if (!('teamId' in value) || value['teamId'] === undefined) return false;
     return true;
 }
 
-export function GetLink200ResponseFromJSON(json: any): GetLink200Response {
-    return GetLink200ResponseFromJSONTyped(json, false);
+export function LinkCreateRequestFromJSON(json: any): LinkCreateRequest {
+    return LinkCreateRequestFromJSONTyped(json, false);
 }
 
-export function GetLink200ResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): GetLink200Response {
+export function LinkCreateRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): LinkCreateRequest {
     if (json == null) {
         return json;
     }
     return {
         
-        'id': json['id'] == null ? undefined : json['id'],
-        'url': json['url'] == null ? undefined : json['url'],
-        'teamId': json['team_id'] == null ? undefined : json['team_id'],
+        'url': json['url'],
         'folderId': json['folder_id'] == null ? undefined : json['folder_id'],
         'domain': json['domain'] == null ? undefined : json['domain'],
         'code': json['code'] == null ? undefined : json['code'],
         'label': json['label'] == null ? undefined : json['label'],
-        'tags': json['tags'] == null ? undefined : ((json['tags'] as Array<any>).map(GetLink200ResponseTagsInnerFromJSON)),
-        'qrcode': json['qrcode'] == null ? undefined : GetLink200ResponseQrcodeFromJSON(json['qrcode']),
+        'tags': json['tags'] == null ? undefined : json['tags'],
+        'password': json['password'] == null ? undefined : json['password'],
+        'qrcode': json['qrcode'] == null ? undefined : LinkBaseRequestQrcodeFromJSON(json['qrcode']),
         'utm': json['utm'] == null ? undefined : GetLink200ResponseUtmFromJSON(json['utm']),
-        'metatag': json['metatag'] == null ? undefined : GetLink200ResponseMetatagFromJSON(json['metatag']),
+        'metatag': json['metatag'] == null ? undefined : LinkBaseRequestMetatagFromJSON(json['metatag']),
         'geolinks': json['geolinks'] == null ? undefined : ((json['geolinks'] as Array<any>).map(GetLink200ResponseGeolinksInnerFromJSON)),
-        'createdAt': json['created_at'] == null ? undefined : (new Date(json['created_at'])),
-        'updatedAt': json['updated_at'] == null ? undefined : (new Date(json['updated_at'])),
         'deleteAt': json['delete_at'] == null ? undefined : (new Date(json['delete_at'])),
         'expiredAt': json['expired_at'] == null ? undefined : (new Date(json['expired_at'])),
         'expiredUrl': json['expired_url'] == null ? undefined : json['expired_url'],
         'deleteAfterExpiration': json['delete_after_expiration'] == null ? undefined : json['delete_after_expiration'],
+        'teamId': json['team_id'],
     };
 }
 
-export function GetLink200ResponseToJSON(json: any): GetLink200Response {
-    return GetLink200ResponseToJSONTyped(json, false);
+export function LinkCreateRequestToJSON(json: any): LinkCreateRequest {
+    return LinkCreateRequestToJSONTyped(json, false);
 }
 
-export function GetLink200ResponseToJSONTyped(value?: GetLink200Response | null, ignoreDiscriminator: boolean = false): any {
+export function LinkCreateRequestToJSONTyped(value?: LinkCreateRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'id': value['id'],
         'url': value['url'],
-        'team_id': value['teamId'],
         'folder_id': value['folderId'],
         'domain': value['domain'],
         'code': value['code'],
         'label': value['label'],
-        'tags': value['tags'] == null ? undefined : ((value['tags'] as Array<any>).map(GetLink200ResponseTagsInnerToJSON)),
-        'qrcode': GetLink200ResponseQrcodeToJSON(value['qrcode']),
+        'tags': value['tags'],
+        'password': value['password'],
+        'qrcode': LinkBaseRequestQrcodeToJSON(value['qrcode']),
         'utm': GetLink200ResponseUtmToJSON(value['utm']),
-        'metatag': GetLink200ResponseMetatagToJSON(value['metatag']),
+        'metatag': LinkBaseRequestMetatagToJSON(value['metatag']),
         'geolinks': value['geolinks'] == null ? undefined : ((value['geolinks'] as Array<any>).map(GetLink200ResponseGeolinksInnerToJSON)),
-        'created_at': value['createdAt'] == null ? undefined : ((value['createdAt']).toISOString()),
-        'updated_at': value['updatedAt'] == null ? undefined : ((value['updatedAt']).toISOString()),
         'delete_at': value['deleteAt'] == null ? undefined : ((value['deleteAt']).toISOString()),
         'expired_at': value['expiredAt'] == null ? undefined : ((value['expiredAt']).toISOString()),
         'expired_url': value['expiredUrl'],
         'delete_after_expiration': value['deleteAfterExpiration'],
+        'team_id': value['teamId'],
     };
 }
 

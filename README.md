@@ -1,4 +1,4 @@
-# urlr-js@2.9.0
+# urlr-js@2.10.0
 
 ![NPM Version](https://img.shields.io/npm/v/urlr-js) ![NPM Downloads](https://img.shields.io/npm/dm/urlr-js) ![NPM License](https://img.shields.io/npm/l/urlr-js)
 
@@ -6,8 +6,8 @@ TypeScript/JavaScript client for URLR, the GDPR-compliant all-in-one platform fo
 
 This SDK is automatically generated with the [OpenAPI Generator](https://openapi-generator.tech) project.
 
-- API version: 1.9
-- Package version: 2.9.0
+- API version: 1.10
+- Package version: 2.10.0
 - Build package: urlr-js
 
 For more information, please visit [https://urlr.me/en](https://urlr.me/en)
@@ -44,13 +44,13 @@ Navigate to the folder of your project and run one of the following commands:
 ### NPM
 
 ```
-npm install urlr-js@2.9.0
+npm install urlr-js@2.10.0
 ```
 
 ### Yarn
 
 ```
-yarn install urlr-js@2.9.0
+yarn install urlr-js@2.10.0
 ```
 
 ## Getting Started
@@ -96,12 +96,13 @@ Class | Method | HTTP request | Description
 *AccessTokensApi* | **createAccessToken** | **POST** /access_tokens/create | Get an access token
 *AccessTokensApi* | **refreshAccessToken** | **POST** /access_tokens/refresh | Refresh an access token
 *DomainsApi* | **createDomain** | **POST** /domains/create | Create a domain
-*FoldersApi* | **getFolders** | **GET** /folders/{team_id} | Get folders of team
+*FoldersApi* | **getFolders** | **GET** /folders/{team_id} | Get folders of workspace
 *LinksApi* | **createLink** | **POST** /links/create | Create a link
+*LinksApi* | **editLink** | **PATCH** /links/{link_id} | Edit a link
 *LinksApi* | **getLink** | **GET** /links/{link_id} | Get a link
 *QRCodesApi* | **createQrCode** | **POST** /qrcodes/create | Create a QR Code
 *StatisticsApi* | **getStatistics** | **POST** /statistics | Get statistics of a link
-*TeamsApi* | **getTeams** | **GET** /teams | Get teams of user
+*WorkspacesApi* | **getTeams** | **GET** /teams | Get workspaces of user
 
 
 ## Authorization

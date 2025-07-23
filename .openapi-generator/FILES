@@ -8,7 +8,7 @@ src/apis/FoldersApi.ts
 src/apis/LinksApi.ts
 src/apis/QRCodesApi.ts
 src/apis/StatisticsApi.ts
-src/apis/TeamsApi.ts
+src/apis/WorkspacesApi.ts
 src/apis/index.ts
 src/index.ts
 src/models/CreateAccessToken200Response.ts
@@ -18,13 +18,10 @@ src/models/CreateDomain200Response.ts
 src/models/CreateDomain409Response.ts
 src/models/CreateDomainRequest.ts
 src/models/CreateLink429Response.ts
-src/models/CreateLink500Response.ts
-src/models/CreateLinkRequest.ts
-src/models/CreateLinkRequestMetatag.ts
-src/models/CreateLinkRequestQrcode.ts
 src/models/CreateQrCodeRequest.ts
 src/models/CreateQrCodeRequestOneOf.ts
 src/models/CreateQrCodeRequestOneOf1.ts
+src/models/EditLink500Response.ts
 src/models/GetFolders200Response.ts
 src/models/GetFolders200ResponseFoldersInner.ts
 src/models/GetLink200Response.ts
@@ -41,6 +38,11 @@ src/models/GetStatistics200Response.ts
 src/models/GetStatisticsRequest.ts
 src/models/GetTeams200Response.ts
 src/models/GetTeams200ResponseTeamsInner.ts
+src/models/LinkBaseRequest.ts
+src/models/LinkBaseRequestMetatag.ts
+src/models/LinkBaseRequestQrcode.ts
+src/models/LinkCreateRequest.ts
+src/models/LinkEditRequest.ts
 src/models/RefreshAccessToken401Response.ts
 src/models/RefreshAccessTokenRequest.ts
 src/models/index.ts
