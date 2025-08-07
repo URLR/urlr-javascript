@@ -1,4 +1,4 @@
-# urlr-js@2.11.0
+# urlr-js@2.11.1
 
 ![NPM Version](https://img.shields.io/npm/v/urlr-js) ![NPM Downloads](https://img.shields.io/npm/dm/urlr-js) ![NPM License](https://img.shields.io/npm/l/urlr-js)
 
@@ -7,7 +7,7 @@ TypeScript/JavaScript client for URLR, the GDPR-compliant all-in-one platform fo
 This SDK is automatically generated with the [OpenAPI Generator](https://openapi-generator.tech) project.
 
 - API version: 1.10
-- Package version: 2.11.0
+- Package version: 2.11.1
 - Build package: urlr-js
 
 For more information, please visit [https://urlr.me/en](https://urlr.me/en)
@@ -44,13 +44,13 @@ Navigate to the folder of your project and run one of the following commands:
 ### NPM
 
 ```
-npm install urlr-js@2.11.0
+npm install urlr-js@2.11.1
 ```
 
 ### Yarn
 
 ```
-yarn install urlr-js@2.11.0
+yarn install urlr-js@2.11.1
 ```
 
 ## Getting Started
@@ -58,29 +58,37 @@ yarn install urlr-js@2.11.0
 Please follow the [installation](#installation) procedure and then run the following code:
 
 ```javascript
-import { Configuration, AccessTokensApi, LinksApi } from "urlr-js"
+import { Configuration, AccessTokensApi, LinksApi, StatisticsApi, WorkspacesApi } from "urlr-js"
+
+const username = process.env.URLR_API_USERNAME; // to be defined on your side
+const password = process.env.URLR_API_PASSWORD; // to be defined on your side
 
 // Access Tokens
 
-const accessTokensApi = new AccessTokensApi();
+let configuration = new Configuration();
+
+const accessTokensApi = new AccessTokensApi(configuration);
 accessTokensApi.createAccessToken({
-  accessTokensRequest: {
-    username: '',
-    password: ''
+  createAccessTokenRequest: {
+    username: username,
+    password: password,
   }
 }).then(function (data) {
-  const configuration = new Configuration({ accessToken: data.token });
+  configuration = new Configuration({
+    accessToken: data.token,
+    basePath: baseUrl
+  });
 
-  // Link shortening
+  // Create a link
 
   const linksApi = new LinksApi(configuration);
   linksApi.createLink({
     createLinkRequest: {
       url: '',
-      teamId: ''
+      teamId: '',
     }
-  }).then(function (data) {
-    console.log(data)
+  }).then(function (link) {
+      console.log(link);
   }).catch((error) => console.error(error));
 }).catch((error) => console.error(error));
 ```

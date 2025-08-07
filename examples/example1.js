@@ -1,36 +1,49 @@
-import { Configuration, AccessTokensApi, LinksApi, StatisticsApi } from "urlr-js"
+import { Configuration, AccessTokensApi, LinksApi, StatisticsApi, WorkspacesApi } from "urlr-js"
+
+const username = process.env.URLR_API_USERNAME; // to be defined on your side
+const password = process.env.URLR_API_PASSWORD; // to be defined on your side
 
 // Access Tokens
 
-const accessTokensApi = new AccessTokensApi();
+let configuration = new Configuration();
+
+const accessTokensApi = new AccessTokensApi(configuration);
 accessTokensApi.createAccessToken({
   createAccessTokenRequest: {
-    username: '',
-    password: ''
+    username: username,
+    password: password,
   }
 }).then(function (data) {
-  const configuration = new Configuration({ accessToken: data.token });
+  configuration = new Configuration({
+    accessToken: data.token,
+    basePath: baseUrl
+  });
 
-  // Link shortening
+  // Workspaces - get workspace id
 
-  const linksApi = new LinksApi(configuration);
-  linksApi.createLink({
-    createLinkRequest: {
-      url: '',
-      teamId: ''
-    }
-  }).then(function (data) {
-    console.log(data)
-  }).catch((error) => console.error(error));
+  const workspacesApi = new WorkspacesApi(configuration);
+  workspacesApi.getTeams().then(function (workspaces) {
+    const workspaceId = workspaces.teams[0].id;
 
-  // Statistics
+    // Create a link
 
-  const statisticsApi = new StatisticsApi(configuration);
-  statisticsApi.getStatistics({
-    statisticsRequest: {
-      linkId: ''
-    }
-  }).then(function (data) {
-    console.log(data)
+    const linksApi = new LinksApi(configuration);
+    linksApi.createLink({
+      createLinkRequest: {
+        url: 'https://github.com/URLR',
+        teamId: workspaceId,
+      }
+    }).then(function (link) {
+      // Get statistics
+
+      const statisticsApi = new StatisticsApi(configuration);
+      statisticsApi.getStatistics({
+        getStatisticsRequest: {
+          linkId: link.id,
+        }
+      }).then(function (statistics) {
+        console.log(statistics);
+      }).catch((error) => console.error(error));
+    }).catch((error) => console.error(error));
   }).catch((error) => console.error(error));
 }).catch((error) => console.error(error));
