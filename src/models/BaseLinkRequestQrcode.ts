@@ -16,37 +16,37 @@ import { mapValues } from '../runtime';
 /**
  * QR Code
  * @export
- * @interface LinkBaseRequestQrcode
+ * @interface BaseLinkRequestQrcode
  */
-export interface LinkBaseRequestQrcode {
+export interface BaseLinkRequestQrcode {
     /**
      * The size of the QR code (px)
      * @type {number}
-     * @memberof LinkBaseRequestQrcode
+     * @memberof BaseLinkRequestQrcode
      */
     size?: number;
     /**
      * The format of the QR code
      * @type {string}
-     * @memberof LinkBaseRequestQrcode
+     * @memberof BaseLinkRequestQrcode
      */
-    format?: LinkBaseRequestQrcodeFormatEnum;
+    format?: BaseLinkRequestQrcodeFormatEnum;
     /**
      * The margin around the QR code (px)
      * @type {number}
-     * @memberof LinkBaseRequestQrcode
+     * @memberof BaseLinkRequestQrcode
      */
     margin?: number;
     /**
      * The background color of the QR code (hexadecimal)
      * @type {string}
-     * @memberof LinkBaseRequestQrcode
+     * @memberof BaseLinkRequestQrcode
      */
     backgroundColor?: string;
     /**
      * The foreground color of the QR code (hexadecimal)
      * @type {string}
-     * @memberof LinkBaseRequestQrcode
+     * @memberof BaseLinkRequestQrcode
      */
     foregroundColor?: string;
 }
@@ -55,26 +55,26 @@ export interface LinkBaseRequestQrcode {
 /**
  * @export
  */
-export const LinkBaseRequestQrcodeFormatEnum = {
+export const BaseLinkRequestQrcodeFormatEnum = {
     Png: 'png',
     Webp: 'webp',
     Svg: 'svg'
 } as const;
-export type LinkBaseRequestQrcodeFormatEnum = typeof LinkBaseRequestQrcodeFormatEnum[keyof typeof LinkBaseRequestQrcodeFormatEnum];
+export type BaseLinkRequestQrcodeFormatEnum = typeof BaseLinkRequestQrcodeFormatEnum[keyof typeof BaseLinkRequestQrcodeFormatEnum];
 
 
 /**
- * Check if a given object implements the LinkBaseRequestQrcode interface.
+ * Check if a given object implements the BaseLinkRequestQrcode interface.
  */
-export function instanceOfLinkBaseRequestQrcode(value: object): value is LinkBaseRequestQrcode {
+export function instanceOfBaseLinkRequestQrcode(value: object): value is BaseLinkRequestQrcode {
     return true;
 }
 
-export function LinkBaseRequestQrcodeFromJSON(json: any): LinkBaseRequestQrcode {
-    return LinkBaseRequestQrcodeFromJSONTyped(json, false);
+export function BaseLinkRequestQrcodeFromJSON(json: any): BaseLinkRequestQrcode {
+    return BaseLinkRequestQrcodeFromJSONTyped(json, false);
 }
 
-export function LinkBaseRequestQrcodeFromJSONTyped(json: any, ignoreDiscriminator: boolean): LinkBaseRequestQrcode {
+export function BaseLinkRequestQrcodeFromJSONTyped(json: any, ignoreDiscriminator: boolean): BaseLinkRequestQrcode {
     if (json == null) {
         return json;
     }
@@ -88,11 +88,11 @@ export function LinkBaseRequestQrcodeFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-export function LinkBaseRequestQrcodeToJSON(json: any): LinkBaseRequestQrcode {
-    return LinkBaseRequestQrcodeToJSONTyped(json, false);
+export function BaseLinkRequestQrcodeToJSON(json: any): BaseLinkRequestQrcode {
+    return BaseLinkRequestQrcodeToJSONTyped(json, false);
 }
 
-export function LinkBaseRequestQrcodeToJSONTyped(value?: LinkBaseRequestQrcode | null, ignoreDiscriminator: boolean = false): any {
+export function BaseLinkRequestQrcodeToJSONTyped(value?: BaseLinkRequestQrcode | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

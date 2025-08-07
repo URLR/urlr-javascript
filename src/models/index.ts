@@ -1,5 +1,8 @@
 /* tslint:disable */
 /* eslint-disable */
+export * from './BaseLinkRequest';
+export * from './BaseLinkRequestMetatag';
+export * from './BaseLinkRequestQrcode';
 export * from './CreateAccessToken200Response';
 export * from './CreateAccessToken401Response';
 export * from './CreateAccessTokenRequest';
@@ -7,10 +10,12 @@ export * from './CreateDomain200Response';
 export * from './CreateDomain409Response';
 export * from './CreateDomainRequest';
 export * from './CreateLink429Response';
+export * from './CreateLinkRequest';
 export * from './CreateQrCodeRequest';
 export * from './CreateQrCodeRequestOneOf';
 export * from './CreateQrCodeRequestOneOf1';
 export * from './EditLink500Response';
+export * from './EditLinkRequest';
 export * from './GetFolders200Response';
 export * from './GetFolders200ResponseFoldersInner';
 export * from './GetLink200Response';
@@ -27,10 +32,5 @@ export * from './GetStatistics200Response';
 export * from './GetStatisticsRequest';
 export * from './GetTeams200Response';
 export * from './GetTeams200ResponseTeamsInner';
-export * from './LinkBaseRequest';
-export * from './LinkBaseRequestMetatag';
-export * from './LinkBaseRequestQrcode';
-export * from './LinkCreateRequest';
-export * from './LinkEditRequest';
 export * from './RefreshAccessToken401Response';
 export * from './RefreshAccessTokenRequest';

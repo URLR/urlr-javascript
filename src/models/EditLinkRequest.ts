@@ -13,20 +13,6 @@
  */
 
 import { mapValues } from '../runtime';
-import type { LinkBaseRequestMetatag } from './LinkBaseRequestMetatag';
-import {
-    LinkBaseRequestMetatagFromJSON,
-    LinkBaseRequestMetatagFromJSONTyped,
-    LinkBaseRequestMetatagToJSON,
-    LinkBaseRequestMetatagToJSONTyped,
-} from './LinkBaseRequestMetatag';
-import type { LinkBaseRequestQrcode } from './LinkBaseRequestQrcode';
-import {
-    LinkBaseRequestQrcodeFromJSON,
-    LinkBaseRequestQrcodeFromJSONTyped,
-    LinkBaseRequestQrcodeToJSON,
-    LinkBaseRequestQrcodeToJSONTyped,
-} from './LinkBaseRequestQrcode';
 import type { GetLink200ResponseUtm } from './GetLink200ResponseUtm';
 import {
     GetLink200ResponseUtmFromJSON,
@@ -41,154 +27,159 @@ import {
     GetLink200ResponseGeolinksInnerToJSON,
     GetLink200ResponseGeolinksInnerToJSONTyped,
 } from './GetLink200ResponseGeolinksInner';
+import type { BaseLinkRequestQrcode } from './BaseLinkRequestQrcode';
+import {
+    BaseLinkRequestQrcodeFromJSON,
+    BaseLinkRequestQrcodeFromJSONTyped,
+    BaseLinkRequestQrcodeToJSON,
+    BaseLinkRequestQrcodeToJSONTyped,
+} from './BaseLinkRequestQrcode';
+import type { BaseLinkRequestMetatag } from './BaseLinkRequestMetatag';
+import {
+    BaseLinkRequestMetatagFromJSON,
+    BaseLinkRequestMetatagFromJSONTyped,
+    BaseLinkRequestMetatagToJSON,
+    BaseLinkRequestMetatagToJSONTyped,
+} from './BaseLinkRequestMetatag';
 
 /**
  * 
  * @export
- * @interface LinkCreateRequest
+ * @interface EditLinkRequest
  */
-export interface LinkCreateRequest {
+export interface EditLinkRequest {
     /**
      * URL to shorten
      * @type {string}
-     * @memberof LinkCreateRequest
+     * @memberof EditLinkRequest
      */
-    url: string;
+    url?: string;
     /**
      * Folder API ID
      * @type {string}
-     * @memberof LinkCreateRequest
+     * @memberof EditLinkRequest
      */
     folderId?: string;
     /**
      * Domain
      * @type {string}
-     * @memberof LinkCreateRequest
+     * @memberof EditLinkRequest
      */
     domain?: string;
     /**
      * Custom short code
      * @type {string}
-     * @memberof LinkCreateRequest
+     * @memberof EditLinkRequest
      */
     code?: string;
     /**
      * Label
      * @type {string}
-     * @memberof LinkCreateRequest
+     * @memberof EditLinkRequest
      */
     label?: string;
     /**
      * Tags
      * @type {Array<string>}
-     * @memberof LinkCreateRequest
+     * @memberof EditLinkRequest
      */
     tags?: Array<string>;
     /**
      * Password
      * @type {string}
-     * @memberof LinkCreateRequest
+     * @memberof EditLinkRequest
      */
     password?: string;
     /**
      * 
-     * @type {LinkBaseRequestQrcode}
-     * @memberof LinkCreateRequest
+     * @type {BaseLinkRequestQrcode}
+     * @memberof EditLinkRequest
      */
-    qrcode?: LinkBaseRequestQrcode;
+    qrcode?: BaseLinkRequestQrcode;
     /**
      * 
      * @type {GetLink200ResponseUtm}
-     * @memberof LinkCreateRequest
+     * @memberof EditLinkRequest
      */
     utm?: GetLink200ResponseUtm;
     /**
      * 
-     * @type {LinkBaseRequestMetatag}
-     * @memberof LinkCreateRequest
+     * @type {BaseLinkRequestMetatag}
+     * @memberof EditLinkRequest
      */
-    metatag?: LinkBaseRequestMetatag;
+    metatag?: BaseLinkRequestMetatag;
     /**
      * Dynamic routing conditions
      * @type {Array<GetLink200ResponseGeolinksInner>}
-     * @memberof LinkCreateRequest
+     * @memberof EditLinkRequest
      */
     geolinks?: Array<GetLink200ResponseGeolinksInner>;
     /**
      * Scheduled deletion date
      * @type {Date}
-     * @memberof LinkCreateRequest
+     * @memberof EditLinkRequest
      */
     deleteAt?: Date;
     /**
      * Scheduled expiration date
      * @type {Date}
-     * @memberof LinkCreateRequest
+     * @memberof EditLinkRequest
      */
     expiredAt?: Date;
     /**
      * Expiration URL
      * @type {string}
-     * @memberof LinkCreateRequest
+     * @memberof EditLinkRequest
      */
     expiredUrl?: string;
     /**
      * Whether or not to remove the link after the expiry date
      * @type {boolean}
-     * @memberof LinkCreateRequest
+     * @memberof EditLinkRequest
      */
     deleteAfterExpiration?: boolean;
-    /**
-     * Workspace API ID
-     * @type {string}
-     * @memberof LinkCreateRequest
-     */
-    teamId: string;
 }
 
 /**
- * Check if a given object implements the LinkCreateRequest interface.
+ * Check if a given object implements the EditLinkRequest interface.
  */
-export function instanceOfLinkCreateRequest(value: object): value is LinkCreateRequest {
-    if (!('url' in value) || value['url'] === undefined) return false;
-    if (!('teamId' in value) || value['teamId'] === undefined) return false;
+export function instanceOfEditLinkRequest(value: object): value is EditLinkRequest {
     return true;
 }
 
-export function LinkCreateRequestFromJSON(json: any): LinkCreateRequest {
-    return LinkCreateRequestFromJSONTyped(json, false);
+export function EditLinkRequestFromJSON(json: any): EditLinkRequest {
+    return EditLinkRequestFromJSONTyped(json, false);
 }
 
-export function LinkCreateRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): LinkCreateRequest {
+export function EditLinkRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): EditLinkRequest {
     if (json == null) {
         return json;
     }
     return {
         
-        'url': json['url'],
+        'url': json['url'] == null ? undefined : json['url'],
         'folderId': json['folder_id'] == null ? undefined : json['folder_id'],
         'domain': json['domain'] == null ? undefined : json['domain'],
         'code': json['code'] == null ? undefined : json['code'],
         'label': json['label'] == null ? undefined : json['label'],
         'tags': json['tags'] == null ? undefined : json['tags'],
         'password': json['password'] == null ? undefined : json['password'],
-        'qrcode': json['qrcode'] == null ? undefined : LinkBaseRequestQrcodeFromJSON(json['qrcode']),
+        'qrcode': json['qrcode'] == null ? undefined : BaseLinkRequestQrcodeFromJSON(json['qrcode']),
         'utm': json['utm'] == null ? undefined : GetLink200ResponseUtmFromJSON(json['utm']),
-        'metatag': json['metatag'] == null ? undefined : LinkBaseRequestMetatagFromJSON(json['metatag']),
+        'metatag': json['metatag'] == null ? undefined : BaseLinkRequestMetatagFromJSON(json['metatag']),
         'geolinks': json['geolinks'] == null ? undefined : ((json['geolinks'] as Array<any>).map(GetLink200ResponseGeolinksInnerFromJSON)),
         'deleteAt': json['delete_at'] == null ? undefined : (new Date(json['delete_at'])),
         'expiredAt': json['expired_at'] == null ? undefined : (new Date(json['expired_at'])),
         'expiredUrl': json['expired_url'] == null ? undefined : json['expired_url'],
         'deleteAfterExpiration': json['delete_after_expiration'] == null ? undefined : json['delete_after_expiration'],
-        'teamId': json['team_id'],
     };
 }
 
-export function LinkCreateRequestToJSON(json: any): LinkCreateRequest {
-    return LinkCreateRequestToJSONTyped(json, false);
+export function EditLinkRequestToJSON(json: any): EditLinkRequest {
+    return EditLinkRequestToJSONTyped(json, false);
 }
 
-export function LinkCreateRequestToJSONTyped(value?: LinkCreateRequest | null, ignoreDiscriminator: boolean = false): any {
+export function EditLinkRequestToJSONTyped(value?: EditLinkRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -202,15 +193,14 @@ export function LinkCreateRequestToJSONTyped(value?: LinkCreateRequest | null, i
         'label': value['label'],
         'tags': value['tags'],
         'password': value['password'],
-        'qrcode': LinkBaseRequestQrcodeToJSON(value['qrcode']),
+        'qrcode': BaseLinkRequestQrcodeToJSON(value['qrcode']),
         'utm': GetLink200ResponseUtmToJSON(value['utm']),
-        'metatag': LinkBaseRequestMetatagToJSON(value['metatag']),
+        'metatag': BaseLinkRequestMetatagToJSON(value['metatag']),
         'geolinks': value['geolinks'] == null ? undefined : ((value['geolinks'] as Array<any>).map(GetLink200ResponseGeolinksInnerToJSON)),
         'delete_at': value['deleteAt'] == null ? undefined : ((value['deleteAt']).toISOString()),
         'expired_at': value['expiredAt'] == null ? undefined : ((value['expiredAt']).toISOString()),
         'expired_url': value['expiredUrl'],
         'delete_after_expiration': value['deleteAfterExpiration'],
-        'team_id': value['teamId'],
     };
 }
 

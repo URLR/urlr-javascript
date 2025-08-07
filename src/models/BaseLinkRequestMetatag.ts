@@ -16,41 +16,41 @@ import { mapValues } from '../runtime';
 /**
  * Custom metadata for social previews
  * @export
- * @interface LinkBaseRequestMetatag
+ * @interface BaseLinkRequestMetatag
  */
-export interface LinkBaseRequestMetatag {
+export interface BaseLinkRequestMetatag {
     /**
      * Title for the link
      * @type {string}
-     * @memberof LinkBaseRequestMetatag
+     * @memberof BaseLinkRequestMetatag
      */
     title?: string;
     /**
      * Description for the link
      * @type {string}
-     * @memberof LinkBaseRequestMetatag
+     * @memberof BaseLinkRequestMetatag
      */
     description?: string;
     /**
      * Image URL for the link. Recommended: 1200X630px<br>Maximum size: 3Mb - Formats: PNG, JPEG, WebP and GIF.
      * @type {string}
-     * @memberof LinkBaseRequestMetatag
+     * @memberof BaseLinkRequestMetatag
      */
     image?: string;
 }
 
 /**
- * Check if a given object implements the LinkBaseRequestMetatag interface.
+ * Check if a given object implements the BaseLinkRequestMetatag interface.
  */
-export function instanceOfLinkBaseRequestMetatag(value: object): value is LinkBaseRequestMetatag {
+export function instanceOfBaseLinkRequestMetatag(value: object): value is BaseLinkRequestMetatag {
     return true;
 }
 
-export function LinkBaseRequestMetatagFromJSON(json: any): LinkBaseRequestMetatag {
-    return LinkBaseRequestMetatagFromJSONTyped(json, false);
+export function BaseLinkRequestMetatagFromJSON(json: any): BaseLinkRequestMetatag {
+    return BaseLinkRequestMetatagFromJSONTyped(json, false);
 }
 
-export function LinkBaseRequestMetatagFromJSONTyped(json: any, ignoreDiscriminator: boolean): LinkBaseRequestMetatag {
+export function BaseLinkRequestMetatagFromJSONTyped(json: any, ignoreDiscriminator: boolean): BaseLinkRequestMetatag {
     if (json == null) {
         return json;
     }
@@ -62,11 +62,11 @@ export function LinkBaseRequestMetatagFromJSONTyped(json: any, ignoreDiscriminat
     };
 }
 
-export function LinkBaseRequestMetatagToJSON(json: any): LinkBaseRequestMetatag {
-    return LinkBaseRequestMetatagToJSONTyped(json, false);
+export function BaseLinkRequestMetatagToJSON(json: any): BaseLinkRequestMetatag {
+    return BaseLinkRequestMetatagToJSONTyped(json, false);
 }
 
-export function LinkBaseRequestMetatagToJSONTyped(value?: LinkBaseRequestMetatag | null, ignoreDiscriminator: boolean = false): any {
+export function BaseLinkRequestMetatagToJSONTyped(value?: BaseLinkRequestMetatag | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

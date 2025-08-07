@@ -3,7 +3,7 @@ import { Configuration, AccessTokensApi, LinksApi, StatisticsApi } from "urlr-js
 // Access Tokens
 
 const accessTokensApi = new AccessTokensApi();
-accessTokensApi.create_access_token({
+accessTokensApi.createAccessToken({
   createAccessTokenRequest: {
     username: '',
     password: ''
@@ -26,7 +26,7 @@ accessTokensApi.create_access_token({
   // Statistics
 
   const statisticsApi = new StatisticsApi(configuration);
-  statisticsApi.statistics({
+  statisticsApi.getStatistics({
     statisticsRequest: {
       linkId: ''
     }

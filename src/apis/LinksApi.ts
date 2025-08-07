@@ -16,19 +16,23 @@
 import * as runtime from '../runtime';
 import type {
   CreateLink429Response,
+  CreateLinkRequest,
   EditLink500Response,
+  EditLinkRequest,
   GetLink200Response,
   GetLink401Response,
   GetLink404Response,
   GetLink422Response,
-  LinkCreateRequest,
-  LinkEditRequest,
 } from '../models/index';
 import {
     CreateLink429ResponseFromJSON,
     CreateLink429ResponseToJSON,
+    CreateLinkRequestFromJSON,
+    CreateLinkRequestToJSON,
     EditLink500ResponseFromJSON,
     EditLink500ResponseToJSON,
+    EditLinkRequestFromJSON,
+    EditLinkRequestToJSON,
     GetLink200ResponseFromJSON,
     GetLink200ResponseToJSON,
     GetLink401ResponseFromJSON,
@@ -37,19 +41,15 @@ import {
     GetLink404ResponseToJSON,
     GetLink422ResponseFromJSON,
     GetLink422ResponseToJSON,
-    LinkCreateRequestFromJSON,
-    LinkCreateRequestToJSON,
-    LinkEditRequestFromJSON,
-    LinkEditRequestToJSON,
 } from '../models/index';
 
-export interface CreateLinkRequest {
-    linkCreateRequest?: LinkCreateRequest;
+export interface CreateLinkOperationRequest {
+    createLinkRequest?: CreateLinkRequest;
 }
 
-export interface EditLinkRequest {
+export interface EditLinkOperationRequest {
     linkId: string;
-    linkEditRequest?: LinkEditRequest;
+    editLinkRequest?: EditLinkRequest;
 }
 
 export interface GetLinkRequest {
@@ -64,7 +64,7 @@ export class LinksApi extends runtime.BaseAPI {
     /**
      * Create a link
      */
-    async createLinkRaw(requestParameters: CreateLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetLink200Response>> {
+    async createLinkRaw(requestParameters: CreateLinkOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetLink200Response>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -87,7 +87,7 @@ export class LinksApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: LinkCreateRequestToJSON(requestParameters['linkCreateRequest']),
+            body: CreateLinkRequestToJSON(requestParameters['createLinkRequest']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => GetLink200ResponseFromJSON(jsonValue));
@@ -96,7 +96,7 @@ export class LinksApi extends runtime.BaseAPI {
     /**
      * Create a link
      */
-    async createLink(requestParameters: CreateLinkRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetLink200Response> {
+    async createLink(requestParameters: CreateLinkOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetLink200Response> {
         const response = await this.createLinkRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -104,7 +104,7 @@ export class LinksApi extends runtime.BaseAPI {
     /**
      * Edit a link
      */
-    async editLinkRaw(requestParameters: EditLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetLink200Response>> {
+    async editLinkRaw(requestParameters: EditLinkOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetLink200Response>> {
         if (requestParameters['linkId'] == null) {
             throw new runtime.RequiredError(
                 'linkId',
@@ -135,7 +135,7 @@ export class LinksApi extends runtime.BaseAPI {
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
-            body: LinkEditRequestToJSON(requestParameters['linkEditRequest']),
+            body: EditLinkRequestToJSON(requestParameters['editLinkRequest']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => GetLink200ResponseFromJSON(jsonValue));
@@ -144,7 +144,7 @@ export class LinksApi extends runtime.BaseAPI {
     /**
      * Edit a link
      */
-    async editLink(requestParameters: EditLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetLink200Response> {
+    async editLink(requestParameters: EditLinkOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetLink200Response> {
         const response = await this.editLinkRaw(requestParameters, initOverrides);
         return await response.value();
     }
