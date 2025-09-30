@@ -6,7 +6,7 @@ TypeScript/JavaScript client for URLR, the GDPR-compliant all-in-one platform fo
 
 This SDK is automatically generated with the [OpenAPI Generator](https://openapi-generator.tech) project.
 
-- API version: 1.10
+- API version: 1.12
 - Package version: 2.11.1
 - Build package: urlr-js
 
@@ -104,10 +104,12 @@ Class | Method | HTTP request | Description
 *AccessTokensApi* | **createAccessToken** | **POST** /access_tokens/create | Get an access token
 *AccessTokensApi* | **refreshAccessToken** | **POST** /access_tokens/refresh | Refresh an access token
 *DomainsApi* | **createDomain** | **POST** /domains/create | Create a domain
+*FoldersApi* | **createFolder** | **POST** /folders/create | Create a folder
 *FoldersApi* | **getFolders** | **GET** /folders/{team_id} | Get folders of workspace
 *LinksApi* | **createLink** | **POST** /links/create | Create a link
 *LinksApi* | **editLink** | **PATCH** /links/{link_id} | Edit a link
 *LinksApi* | **getLink** | **GET** /links/{link_id} | Get a link
+*LinksApi* | **listLinks** | **GET** /links | List links
 *QRCodesApi* | **createQrCode** | **POST** /qrcodes/create | Create a QR Code
 *StatisticsApi* | **getStatistics** | **POST** /statistics | Get statistics of a link
 *WorkspacesApi* | **getTeams** | **GET** /teams | Get workspaces of user

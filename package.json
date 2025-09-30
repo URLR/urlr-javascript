@@ -11,7 +11,7 @@
   "keywords": ["link shortener", "api", "sdk", "client"],
   "license": "MIT",
   "main": "./dist/index.js",
-  "typings": "./dist/index.d.ts",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "prepare": "npm run build"

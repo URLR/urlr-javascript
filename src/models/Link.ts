@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { LinkQrcode } from './LinkQrcode';
+import {
+    LinkQrcodeFromJSON,
+    LinkQrcodeFromJSONTyped,
+    LinkQrcodeToJSON,
+    LinkQrcodeToJSONTyped,
+} from './LinkQrcode';
 import type { LinkUtm } from './LinkUtm';
 import {
     LinkUtmFromJSON,
@@ -20,6 +27,13 @@ import {
     LinkUtmToJSON,
     LinkUtmToJSONTyped,
 } from './LinkUtm';
+import type { LinkTagsInner } from './LinkTagsInner';
+import {
+    LinkTagsInnerFromJSON,
+    LinkTagsInnerFromJSONTyped,
+    LinkTagsInnerToJSON,
+    LinkTagsInnerToJSONTyped,
+} from './LinkTagsInner';
 import type { LinkGeolinksInner } from './LinkGeolinksInner';
 import {
     LinkGeolinksInnerFromJSON,
@@ -27,147 +41,168 @@ import {
     LinkGeolinksInnerToJSON,
     LinkGeolinksInnerToJSONTyped,
 } from './LinkGeolinksInner';
-import type { BaseLinkRequestQrcode } from './BaseLinkRequestQrcode';
+import type { LinkMetatag } from './LinkMetatag';
 import {
-    BaseLinkRequestQrcodeFromJSON,
-    BaseLinkRequestQrcodeFromJSONTyped,
-    BaseLinkRequestQrcodeToJSON,
-    BaseLinkRequestQrcodeToJSONTyped,
-} from './BaseLinkRequestQrcode';
-import type { BaseLinkRequestMetatag } from './BaseLinkRequestMetatag';
-import {
-    BaseLinkRequestMetatagFromJSON,
-    BaseLinkRequestMetatagFromJSONTyped,
-    BaseLinkRequestMetatagToJSON,
-    BaseLinkRequestMetatagToJSONTyped,
-} from './BaseLinkRequestMetatag';
+    LinkMetatagFromJSON,
+    LinkMetatagFromJSONTyped,
+    LinkMetatagToJSON,
+    LinkMetatagToJSONTyped,
+} from './LinkMetatag';
 
 /**
  * 
  * @export
- * @interface BaseLinkRequest
+ * @interface Link
  */
-export interface BaseLinkRequest {
+export interface Link {
     /**
-     * URL to shorten
+     * Link API ID
      * @type {string}
-     * @memberof BaseLinkRequest
+     * @memberof Link
+     */
+    id?: string;
+    /**
+     * Original URL
+     * @type {string}
+     * @memberof Link
      */
     url?: string;
     /**
+     * Workspace API ID
+     * @type {string}
+     * @memberof Link
+     */
+    teamId?: string;
+    /**
      * Folder API ID
      * @type {string}
-     * @memberof BaseLinkRequest
+     * @memberof Link
      */
     folderId?: string;
     /**
      * Domain
      * @type {string}
-     * @memberof BaseLinkRequest
+     * @memberof Link
      */
     domain?: string;
     /**
-     * Custom short code
+     * Short code
      * @type {string}
-     * @memberof BaseLinkRequest
+     * @memberof Link
      */
     code?: string;
     /**
      * Label
      * @type {string}
-     * @memberof BaseLinkRequest
+     * @memberof Link
      */
     label?: string;
     /**
      * Tags
-     * @type {Array<string>}
-     * @memberof BaseLinkRequest
+     * @type {Array<LinkTagsInner>}
+     * @memberof Link
      */
-    tags?: Array<string>;
+    tags?: Array<LinkTagsInner>;
     /**
-     * Password
+     * Password: "**********" means a password exists; null means no password.
      * @type {string}
-     * @memberof BaseLinkRequest
+     * @memberof Link
      */
     password?: string;
     /**
      * 
-     * @type {BaseLinkRequestQrcode}
-     * @memberof BaseLinkRequest
+     * @type {LinkQrcode}
+     * @memberof Link
      */
-    qrcode?: BaseLinkRequestQrcode;
+    qrcode?: LinkQrcode;
     /**
      * 
      * @type {LinkUtm}
-     * @memberof BaseLinkRequest
+     * @memberof Link
      */
     utm?: LinkUtm;
     /**
      * 
-     * @type {BaseLinkRequestMetatag}
-     * @memberof BaseLinkRequest
+     * @type {LinkMetatag}
+     * @memberof Link
      */
-    metatag?: BaseLinkRequestMetatag;
+    metatag?: LinkMetatag;
     /**
      * Dynamic routing conditions
      * @type {Array<LinkGeolinksInner>}
-     * @memberof BaseLinkRequest
+     * @memberof Link
      */
     geolinks?: Array<LinkGeolinksInner>;
     /**
+     * Creation date
+     * @type {Date}
+     * @memberof Link
+     */
+    createdAt?: Date;
+    /**
+     * Modification date
+     * @type {Date}
+     * @memberof Link
+     */
+    updatedAt?: Date;
+    /**
      * Scheduled deletion date
      * @type {Date}
-     * @memberof BaseLinkRequest
+     * @memberof Link
      */
     deleteAt?: Date;
     /**
      * Scheduled expiration date
      * @type {Date}
-     * @memberof BaseLinkRequest
+     * @memberof Link
      */
     expiredAt?: Date;
     /**
      * Expiration URL
      * @type {string}
-     * @memberof BaseLinkRequest
+     * @memberof Link
      */
     expiredUrl?: string;
     /**
      * Whether or not to remove the link after the expiry date
      * @type {boolean}
-     * @memberof BaseLinkRequest
+     * @memberof Link
      */
     deleteAfterExpiration?: boolean;
 }
 
 /**
- * Check if a given object implements the BaseLinkRequest interface.
+ * Check if a given object implements the Link interface.
  */
-export function instanceOfBaseLinkRequest(value: object): value is BaseLinkRequest {
+export function instanceOfLink(value: object): value is Link {
     return true;
 }
 
-export function BaseLinkRequestFromJSON(json: any): BaseLinkRequest {
-    return BaseLinkRequestFromJSONTyped(json, false);
+export function LinkFromJSON(json: any): Link {
+    return LinkFromJSONTyped(json, false);
 }
 
-export function BaseLinkRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): BaseLinkRequest {
+export function LinkFromJSONTyped(json: any, ignoreDiscriminator: boolean): Link {
     if (json == null) {
         return json;
     }
     return {
         
+        'id': json['id'] == null ? undefined : json['id'],
         'url': json['url'] == null ? undefined : json['url'],
+        'teamId': json['team_id'] == null ? undefined : json['team_id'],
         'folderId': json['folder_id'] == null ? undefined : json['folder_id'],
         'domain': json['domain'] == null ? undefined : json['domain'],
         'code': json['code'] == null ? undefined : json['code'],
         'label': json['label'] == null ? undefined : json['label'],
-        'tags': json['tags'] == null ? undefined : json['tags'],
+        'tags': json['tags'] == null ? undefined : ((json['tags'] as Array<any>).map(LinkTagsInnerFromJSON)),
         'password': json['password'] == null ? undefined : json['password'],
-        'qrcode': json['qrcode'] == null ? undefined : BaseLinkRequestQrcodeFromJSON(json['qrcode']),
+        'qrcode': json['qrcode'] == null ? undefined : LinkQrcodeFromJSON(json['qrcode']),
         'utm': json['utm'] == null ? undefined : LinkUtmFromJSON(json['utm']),
-        'metatag': json['metatag'] == null ? undefined : BaseLinkRequestMetatagFromJSON(json['metatag']),
+        'metatag': json['metatag'] == null ? undefined : LinkMetatagFromJSON(json['metatag']),
         'geolinks': json['geolinks'] == null ? undefined : ((json['geolinks'] as Array<any>).map(LinkGeolinksInnerFromJSON)),
+        'createdAt': json['created_at'] == null ? undefined : (new Date(json['created_at'])),
+        'updatedAt': json['updated_at'] == null ? undefined : (new Date(json['updated_at'])),
         'deleteAt': json['delete_at'] == null ? undefined : (new Date(json['delete_at'])),
         'expiredAt': json['expired_at'] == null ? undefined : (new Date(json['expired_at'])),
         'expiredUrl': json['expired_url'] == null ? undefined : json['expired_url'],
@@ -175,28 +210,32 @@ export function BaseLinkRequestFromJSONTyped(json: any, ignoreDiscriminator: boo
     };
 }
 
-export function BaseLinkRequestToJSON(json: any): BaseLinkRequest {
-    return BaseLinkRequestToJSONTyped(json, false);
+export function LinkToJSON(json: any): Link {
+    return LinkToJSONTyped(json, false);
 }
 
-export function BaseLinkRequestToJSONTyped(value?: BaseLinkRequest | null, ignoreDiscriminator: boolean = false): any {
+export function LinkToJSONTyped(value?: Link | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
+        'id': value['id'],
         'url': value['url'],
+        'team_id': value['teamId'],
         'folder_id': value['folderId'],
         'domain': value['domain'],
         'code': value['code'],
         'label': value['label'],
-        'tags': value['tags'],
+        'tags': value['tags'] == null ? undefined : ((value['tags'] as Array<any>).map(LinkTagsInnerToJSON)),
         'password': value['password'],
-        'qrcode': BaseLinkRequestQrcodeToJSON(value['qrcode']),
+        'qrcode': LinkQrcodeToJSON(value['qrcode']),
         'utm': LinkUtmToJSON(value['utm']),
-        'metatag': BaseLinkRequestMetatagToJSON(value['metatag']),
+        'metatag': LinkMetatagToJSON(value['metatag']),
         'geolinks': value['geolinks'] == null ? undefined : ((value['geolinks'] as Array<any>).map(LinkGeolinksInnerToJSON)),
+        'created_at': value['createdAt'] == null ? value['createdAt'] : value['createdAt'].toISOString(),
+        'updated_at': value['updatedAt'] == null ? value['updatedAt'] : value['updatedAt'].toISOString(),
         'delete_at': value['deleteAt'] == null ? value['deleteAt'] : value['deleteAt'].toISOString(),
         'expired_at': value['expiredAt'] == null ? value['expiredAt'] : value['expiredAt'].toISOString(),
         'expired_url': value['expiredUrl'],
