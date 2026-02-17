@@ -21,7 +21,7 @@ import { mapValues } from '../runtime';
 export interface LinkGeolinksInnerConditionsInner {
     /**
      * Type of the condition 
-     * @type {string}
+     * @type {LinkGeolinksInnerConditionsInnerTypeEnum}
      * @memberof LinkGeolinksInnerConditionsInner
      */
     type?: LinkGeolinksInnerConditionsInnerTypeEnum;
@@ -33,7 +33,7 @@ export interface LinkGeolinksInnerConditionsInner {
     value?: string;
     /**
      * Operator to apply for the condition
-     * @type {string}
+     * @type {LinkGeolinksInnerConditionsInnerOperatorEnum}
      * @memberof LinkGeolinksInnerConditionsInner
      */
     operator?: LinkGeolinksInnerConditionsInnerOperatorEnum;

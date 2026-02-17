@@ -44,9 +44,9 @@ export interface CreateQrCodeOperationRequest {
 export class QRCodesApi extends runtime.BaseAPI {
 
     /**
-     * Create a QR Code
+     * Creates request options for createQrCode without sending the request
      */
-    async createQrCodeRaw(requestParameters: CreateQrCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Blob>> {
+    async createQrCodeRequestOpts(requestParameters: CreateQrCodeOperationRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -64,13 +64,21 @@ export class QRCodesApi extends runtime.BaseAPI {
 
         let urlPath = `/qrcodes/create`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: CreateQrCodeRequestToJSON(requestParameters['createQrCodeRequest']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Create a QR Code
+     */
+    async createQrCodeRaw(requestParameters: CreateQrCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Blob>> {
+        const requestOptions = await this.createQrCodeRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.BlobApiResponse(response);
     }

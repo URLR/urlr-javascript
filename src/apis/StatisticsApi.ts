@@ -44,9 +44,9 @@ export interface GetStatisticsOperationRequest {
 export class StatisticsApi extends runtime.BaseAPI {
 
     /**
-     * Get statistics of a link
+     * Creates request options for getStatistics without sending the request
      */
-    async getStatisticsRaw(requestParameters: GetStatisticsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetStatistics200Response>> {
+    async getStatisticsRequestOpts(requestParameters: GetStatisticsOperationRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -64,13 +64,21 @@ export class StatisticsApi extends runtime.BaseAPI {
 
         let urlPath = `/statistics`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: GetStatisticsRequestToJSON(requestParameters['getStatisticsRequest']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Get statistics of a link
+     */
+    async getStatisticsRaw(requestParameters: GetStatisticsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetStatistics200Response>> {
+        const requestOptions = await this.getStatisticsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => GetStatistics200ResponseFromJSON(jsonValue));
     }

@@ -39,7 +39,7 @@ export interface CreateFolderRequest {
     parentId?: string;
     /**
      * Color of folder
-     * @type {string}
+     * @type {CreateFolderRequestColorEnum}
      * @memberof CreateFolderRequest
      */
     color?: CreateFolderRequestColorEnum;

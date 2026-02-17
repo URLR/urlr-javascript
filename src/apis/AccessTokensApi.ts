@@ -48,9 +48,9 @@ export interface RefreshAccessTokenOperationRequest {
 export class AccessTokensApi extends runtime.BaseAPI {
 
     /**
-     * Get an access token
+     * Creates request options for createAccessToken without sending the request
      */
-    async createAccessTokenRaw(requestParameters: CreateAccessTokenOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateAccessToken200Response>> {
+    async createAccessTokenRequestOpts(requestParameters: CreateAccessTokenOperationRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -60,13 +60,21 @@ export class AccessTokensApi extends runtime.BaseAPI {
 
         let urlPath = `/access_tokens/create`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: CreateAccessTokenRequestToJSON(requestParameters['createAccessTokenRequest']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Get an access token
+     */
+    async createAccessTokenRaw(requestParameters: CreateAccessTokenOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateAccessToken200Response>> {
+        const requestOptions = await this.createAccessTokenRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => CreateAccessToken200ResponseFromJSON(jsonValue));
     }
@@ -80,9 +88,9 @@ export class AccessTokensApi extends runtime.BaseAPI {
     }
 
     /**
-     * Refresh an access token
+     * Creates request options for refreshAccessToken without sending the request
      */
-    async refreshAccessTokenRaw(requestParameters: RefreshAccessTokenOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateAccessToken200Response>> {
+    async refreshAccessTokenRequestOpts(requestParameters: RefreshAccessTokenOperationRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -92,13 +100,21 @@ export class AccessTokensApi extends runtime.BaseAPI {
 
         let urlPath = `/access_tokens/refresh`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: RefreshAccessTokenRequestToJSON(requestParameters['refreshAccessTokenRequest']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Refresh an access token
+     */
+    async refreshAccessTokenRaw(requestParameters: RefreshAccessTokenOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateAccessToken200Response>> {
+        const requestOptions = await this.refreshAccessTokenRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => CreateAccessToken200ResponseFromJSON(jsonValue));
     }

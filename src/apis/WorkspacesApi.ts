@@ -31,9 +31,9 @@ import {
 export class WorkspacesApi extends runtime.BaseAPI {
 
     /**
-     * Get workspaces of user
+     * Creates request options for getTeams without sending the request
      */
-    async getTeamsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetTeams200Response>> {
+    async getTeamsRequestOpts(): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -49,12 +49,20 @@ export class WorkspacesApi extends runtime.BaseAPI {
 
         let urlPath = `/teams`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Get workspaces of user
+     */
+    async getTeamsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetTeams200Response>> {
+        const requestOptions = await this.getTeamsRequestOpts();
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => GetTeams200ResponseFromJSON(jsonValue));
     }

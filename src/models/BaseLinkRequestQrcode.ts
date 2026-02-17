@@ -27,7 +27,7 @@ export interface BaseLinkRequestQrcode {
     size?: number;
     /**
      * The format of the QR code
-     * @type {string}
+     * @type {BaseLinkRequestQrcodeFormatEnum}
      * @memberof BaseLinkRequestQrcode
      */
     format?: BaseLinkRequestQrcodeFormatEnum;

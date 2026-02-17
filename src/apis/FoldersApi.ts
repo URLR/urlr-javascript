@@ -57,9 +57,9 @@ export interface GetFoldersRequest {
 export class FoldersApi extends runtime.BaseAPI {
 
     /**
-     * Create a folder
+     * Creates request options for createFolder without sending the request
      */
-    async createFolderRaw(requestParameters: CreateFolderOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateFolder200Response>> {
+    async createFolderRequestOpts(requestParameters: CreateFolderOperationRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -69,13 +69,21 @@ export class FoldersApi extends runtime.BaseAPI {
 
         let urlPath = `/folders/create`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: CreateFolderRequestToJSON(requestParameters['createFolderRequest']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Create a folder
+     */
+    async createFolderRaw(requestParameters: CreateFolderOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateFolder200Response>> {
+        const requestOptions = await this.createFolderRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => CreateFolder200ResponseFromJSON(jsonValue));
     }
@@ -89,9 +97,9 @@ export class FoldersApi extends runtime.BaseAPI {
     }
 
     /**
-     * Get folders of workspace
+     * Creates request options for getFolders without sending the request
      */
-    async getFoldersRaw(requestParameters: GetFoldersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetFolders200Response>> {
+    async getFoldersRequestOpts(requestParameters: GetFoldersRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['teamId'] == null) {
             throw new runtime.RequiredError(
                 'teamId',
@@ -115,12 +123,20 @@ export class FoldersApi extends runtime.BaseAPI {
         let urlPath = `/folders/{team_id}`;
         urlPath = urlPath.replace(`{${"team_id"}}`, encodeURIComponent(String(requestParameters['teamId'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Get folders of workspace
+     */
+    async getFoldersRaw(requestParameters: GetFoldersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetFolders200Response>> {
+        const requestOptions = await this.getFoldersRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => GetFolders200ResponseFromJSON(jsonValue));
     }

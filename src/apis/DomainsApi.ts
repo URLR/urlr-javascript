@@ -44,9 +44,9 @@ export interface CreateDomainOperationRequest {
 export class DomainsApi extends runtime.BaseAPI {
 
     /**
-     * Create a domain
+     * Creates request options for createDomain without sending the request
      */
-    async createDomainRaw(requestParameters: CreateDomainOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateDomain200Response>> {
+    async createDomainRequestOpts(requestParameters: CreateDomainOperationRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -56,13 +56,21 @@ export class DomainsApi extends runtime.BaseAPI {
 
         let urlPath = `/domains/create`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: CreateDomainRequestToJSON(requestParameters['createDomainRequest']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Create a domain
+     */
+    async createDomainRaw(requestParameters: CreateDomainOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateDomain200Response>> {
+        const requestOptions = await this.createDomainRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => CreateDomain200ResponseFromJSON(jsonValue));
     }

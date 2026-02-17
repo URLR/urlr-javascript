@@ -73,9 +73,9 @@ export interface ListLinksRequest {
 export class LinksApi extends runtime.BaseAPI {
 
     /**
-     * Create a link
+     * Creates request options for createLink without sending the request
      */
-    async createLinkRaw(requestParameters: CreateLinkOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Link>> {
+    async createLinkRequestOpts(requestParameters: CreateLinkOperationRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -93,13 +93,21 @@ export class LinksApi extends runtime.BaseAPI {
 
         let urlPath = `/links/create`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: CreateLinkRequestToJSON(requestParameters['createLinkRequest']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Create a link
+     */
+    async createLinkRaw(requestParameters: CreateLinkOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Link>> {
+        const requestOptions = await this.createLinkRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => LinkFromJSON(jsonValue));
     }
@@ -113,9 +121,9 @@ export class LinksApi extends runtime.BaseAPI {
     }
 
     /**
-     * Edit a link
+     * Creates request options for editLink without sending the request
      */
-    async editLinkRaw(requestParameters: EditLinkOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Link>> {
+    async editLinkRequestOpts(requestParameters: EditLinkOperationRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['linkId'] == null) {
             throw new runtime.RequiredError(
                 'linkId',
@@ -141,13 +149,21 @@ export class LinksApi extends runtime.BaseAPI {
         let urlPath = `/links/{link_id}`;
         urlPath = urlPath.replace(`{${"link_id"}}`, encodeURIComponent(String(requestParameters['linkId'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
             body: EditLinkRequestToJSON(requestParameters['editLinkRequest']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Edit a link
+     */
+    async editLinkRaw(requestParameters: EditLinkOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Link>> {
+        const requestOptions = await this.editLinkRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => LinkFromJSON(jsonValue));
     }
@@ -161,9 +177,9 @@ export class LinksApi extends runtime.BaseAPI {
     }
 
     /**
-     * Get a link
+     * Creates request options for getLink without sending the request
      */
-    async getLinkRaw(requestParameters: GetLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Link>> {
+    async getLinkRequestOpts(requestParameters: GetLinkRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['linkId'] == null) {
             throw new runtime.RequiredError(
                 'linkId',
@@ -187,12 +203,20 @@ export class LinksApi extends runtime.BaseAPI {
         let urlPath = `/links/{link_id}`;
         urlPath = urlPath.replace(`{${"link_id"}}`, encodeURIComponent(String(requestParameters['linkId'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Get a link
+     */
+    async getLinkRaw(requestParameters: GetLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Link>> {
+        const requestOptions = await this.getLinkRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => LinkFromJSON(jsonValue));
     }
@@ -206,9 +230,9 @@ export class LinksApi extends runtime.BaseAPI {
     }
 
     /**
-     * List links
+     * Creates request options for listLinks without sending the request
      */
-    async listLinksRaw(requestParameters: ListLinksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListLinks200Response>> {
+    async listLinksRequestOpts(requestParameters: ListLinksRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['teamId'] != null) {
@@ -244,12 +268,20 @@ export class LinksApi extends runtime.BaseAPI {
 
         let urlPath = `/links`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * List links
+     */
+    async listLinksRaw(requestParameters: ListLinksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListLinks200Response>> {
+        const requestOptions = await this.listLinksRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ListLinks200ResponseFromJSON(jsonValue));
     }

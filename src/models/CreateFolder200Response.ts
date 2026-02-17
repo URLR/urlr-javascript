@@ -45,7 +45,7 @@ export interface CreateFolder200Response {
     parentName?: string;
     /**
      * Color of folder
-     * @type {string}
+     * @type {CreateFolder200ResponseColorEnum}
      * @memberof CreateFolder200Response
      */
     color?: CreateFolder200ResponseColorEnum;
